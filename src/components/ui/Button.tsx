@@ -21,11 +21,11 @@ export function Button({
     primary:
       "bg-accent-500 text-white hover:bg-accent-600 active:scale-[0.98] shadow-sm",
     secondary:
-      "bg-navy-900 text-white hover:bg-navy-600 active:scale-[0.98]",
+      "bg-[#2e2f2d] text-white hover:bg-[#424441] active:scale-[0.98]",
     outline:
-      "border border-navy-900 text-navy-900 hover:bg-navy-900 hover:text-white active:scale-[0.98]",
+      "border border-[#2e2f2d] text-[#2e2f2d] hover:bg-[#2e2f2d] hover:text-white active:scale-[0.98]",
     ghost:
-      "text-navy-900 hover:bg-black/5 active:scale-[0.98]",
+      "text-[#2e2f2d] hover:bg-black/5 active:scale-[0.98]",
   };
 
   const sizes = {

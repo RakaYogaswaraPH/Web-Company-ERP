@@ -12,7 +12,7 @@ export function StatusBadge({ status, className }: StatusBadgeProps) {
     return (
       <span
         className={cn(
-          "inline-flex items-center px-2.5 py-0.5 text-[11px] font-display uppercase tracking-widest font-semibold border border-navy-900/30 text-navy-900/80 bg-background rounded-none",
+          "inline-flex items-center px-2.5 py-0.5 text-[11px] font-display uppercase tracking-widest font-semibold border border-[#2e2f2d]/30 text-[#2e2f2d]/80 bg-background rounded-none",
           className
         )}
       >
@@ -24,7 +24,7 @@ export function StatusBadge({ status, className }: StatusBadgeProps) {
   return (
     <span
       className={cn(
-        "inline-flex items-center px-2.5 py-0.5 text-[11px] font-display uppercase tracking-widest font-semibold bg-navy-900 text-white rounded-none",
+        "inline-flex items-center px-2.5 py-0.5 text-[11px] font-display uppercase tracking-widest font-semibold bg-[#2e2f2d] text-white rounded-none",
         className
       )}
     >
@@ -43,7 +43,7 @@ export function Badge({
   return (
     <span
       className={cn(
-        "inline-flex items-center px-2 py-0.5 text-xs font-display uppercase tracking-wider text-navy-900 border border-navy-900/20 bg-surface",
+        "inline-flex items-center px-2 py-0.5 text-xs font-display uppercase tracking-wider text-[#2e2f2d] border border-[#2e2f2d]/20 bg-surface",
         className
       )}
     >

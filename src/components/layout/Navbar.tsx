@@ -13,11 +13,11 @@ export function Navbar() {
 
   return (
     <>
-      {/* 1. THINKING ROOM FLOATING SIDE DOCK (Left Edge) */}
+      {/* 1. THINKING ROOM FLOATING SIDE DOCK (Desktop only, completely hidden on mobile) */}
       <aside
         onClick={() => setIsOpen(true)}
-        className="fixed left-0 top-0 bottom-0 z-50 flex w-12 sm:w-16 flex-col items-center justify-between py-6 border-r border-[#2e2f2d]/15 bg-[#f6f6f2]/20 backdrop-blur-[2px] transition-all duration-300 hover:bg-[#eff1ea] hover:shadow-lg cursor-pointer group select-none"
-        title="Klik untuk membuka menu navigasi"
+        className="hidden md:flex fixed left-0 top-0 bottom-0 z-50 w-16 flex-col items-center justify-between py-6 border-r border-[#2e2f2d]/15 bg-[#f6f6f2]/20 backdrop-blur-[2px] transition-all duration-300 hover:bg-[#eff1ea] hover:shadow-lg cursor-pointer group select-none"
+        title="Buka Menu Navigasi"
         aria-label="Buka Navigasi Samping"
       >
         {/* Top: Brand Emblem Mark */}
@@ -50,51 +50,16 @@ export function Navbar() {
       </aside>
 
       {/* 2. TOP NAVBAR */}
-      <header className="sticky top-0 z-40 w-full border-b border-[#deded6] bg-[#f6f6f2]/95 backdrop-blur-md transition-colors pl-12 sm:pl-16">
+      <header className="sticky top-0 z-40 w-full border-b border-[#deded6] bg-[#f6f6f2]/95 backdrop-blur-md transition-colors pl-0 md:pl-16">
         <Container>
           <div className="flex h-20 items-center justify-between">
-            {/* Left: Logo Jamparing Masagi */}
-            <Link
-              href="/"
-              className="flex items-center gap-3 transition-opacity hover:opacity-90 focus:outline-none shrink-0"
-            >
-              <div
-                className="relative h-9 w-32 sm:w-36"
-                style={{ position: "relative" }}
-              >
-                <Image
-                  src="/assets/logo/logo-dark.webp"
-                  alt="Logo Jamparing Masagi"
-                  fill
-                  priority
-                  className="object-contain object-left"
-                />
-              </div>
-            </Link>
-
-            {/* Center: "Enterprise Resource Planning" text */}
-            <div className="hidden md:flex items-center justify-center flex-1 px-4 text-center">
-              <span className="font-display text-xs lg:text-sm font-bold uppercase tracking-[0.25em] text-[#2e2f2d]">
-                Enterprise Resource Planning
-              </span>
-            </div>
-
-            {/* Right: Actions */}
-            <div className="flex items-center gap-3 shrink-0">
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 border border-[#2e2f2d] bg-[#2e2f2d] px-4 sm:px-5 py-2.5 font-display text-xs font-bold uppercase tracking-wider text-white transition-all hover:bg-accent-500 hover:border-accent-500 active:scale-95 shadow-sm"
-              >
-                Request Demo
-                <ArrowUpRight className="h-3.5 w-3.5" />
-              </a>
-
-              {/* Hamburger Button that triggers Thinking Room Drawer */}
+            {/* Mobile: Hamburger Button on the side */}
+            <div className="flex md:hidden items-center">
               <button
                 type="button"
                 onClick={() => setIsOpen(true)}
                 aria-label="Buka Menu"
-                className="flex h-10 w-10 items-center justify-center border border-[#deded6] text-[#2e2f2d] transition-colors hover:border-[#2e2f2d] hover:bg-[#eff1ea] focus:outline-none"
+                className="flex h-10 w-10 items-center justify-center border border-[#deded6] text-[#2e2f2d] hover:border-[#2e2f2d] hover:bg-[#eff1ea] focus:outline-none"
               >
                 <div className="flex flex-col gap-1 w-4">
                   <span className="h-[2px] w-full bg-[#2e2f2d]" />
@@ -103,6 +68,48 @@ export function Navbar() {
                 </div>
               </button>
             </div>
+
+            {/* Logo: Centered on mobile, Left-aligned on desktop */}
+            <div className="flex flex-1 md:flex-initial justify-center md:justify-start">
+              <Link
+                href="/"
+                className="flex items-center gap-3 transition-opacity hover:opacity-90 focus:outline-none"
+              >
+                <div
+                  className="relative h-9 w-32 sm:w-36"
+                  style={{ position: "relative" }}
+                >
+                  <Image
+                    src="/assets/logo/logo-dark.webp"
+                    alt="Logo Jamparing Masagi"
+                    fill
+                    priority
+                    className="object-contain"
+                  />
+                </div>
+              </Link>
+            </div>
+
+            {/* Desktop Center: "Enterprise Resource Planning" text */}
+            <div className="hidden md:flex items-center justify-center flex-1 px-4 text-center">
+              <span className="font-display text-xs lg:text-sm font-bold uppercase tracking-[0.25em] text-[#2e2f2d]">
+                Enterprise Resource Planning
+              </span>
+            </div>
+
+            {/* Desktop Right: Request Demo Button ONLY (no hamburger button next to it!) */}
+            <div className="hidden md:flex items-center gap-3 shrink-0">
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 border border-[#2e2f2d] bg-[#2e2f2d] px-5 py-2.5 font-display text-xs font-bold uppercase tracking-wider text-white transition-all hover:bg-accent-500 hover:border-accent-500 active:scale-95 shadow-sm"
+              >
+                Request Demo
+                <ArrowUpRight className="h-3.5 w-3.5" />
+              </a>
+            </div>
+
+            {/* Mobile Right Spacer: Perfectly centers the logo on mobile */}
+            <div className="w-10 md:hidden" aria-hidden="true" />
           </div>
         </Container>
       </header>
@@ -127,7 +134,7 @@ export function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ type: "spring", damping: 28, stiffness: 260 }}
-              className="relative h-full w-full max-w-xl sm:max-w-2xl bg-[#eff1ea] border-r border-[#dcdfd5] shadow-2xl flex flex-col justify-between p-8 sm:p-14 overflow-y-auto"
+              className="relative h-full w-full max-w-xl sm:max-w-2xl bg-[#eff1ea] border-r border-[#dcdfd5] shadow-2xl flex flex-col justify-between p-6 sm:p-14 overflow-y-auto"
             >
               {/* Drawer Header */}
               <div>
@@ -161,8 +168,8 @@ export function Navbar() {
                   </div>
                 </div>
 
-                {/* Main Giant Typographic Nav Links (Thinking Room style) */}
-                <nav className="mt-10 sm:mt-12 flex flex-col gap-4 sm:gap-6">
+                {/* Main Giant Typographic Nav Links */}
+                <nav className="mt-8 sm:mt-12 flex flex-col gap-3 sm:gap-6">
                   {navItems.map((item, idx) => (
                     <Link
                       key={item.href}
@@ -170,11 +177,11 @@ export function Navbar() {
                       onClick={() => setIsOpen(false)}
                       className="group flex items-baseline justify-between border-b border-[#2e2f2d]/10 pb-3 sm:pb-4 text-left transition-all"
                     >
-                      <div className="flex items-baseline gap-4 sm:gap-6">
+                      <div className="flex items-baseline gap-3 sm:gap-6">
                         <span className="font-mono text-xs sm:text-sm font-bold text-[#2e2f2d]/40 group-hover:text-accent-500 transition-colors">
                           0{idx + 1}
                         </span>
-                        <span className="font-display text-3xl sm:text-5xl font-bold uppercase tracking-tight text-[#2e2f2d] transition-all group-hover:translate-x-2 group-hover:text-accent-500">
+                        <span className="font-display text-2xl sm:text-5xl font-bold uppercase tracking-tight text-[#2e2f2d] transition-all group-hover:translate-x-2 group-hover:text-accent-500">
                           {item.label}
                         </span>
                       </div>
@@ -185,7 +192,7 @@ export function Navbar() {
               </div>
 
               {/* Drawer Footer Info */}
-              <div className="mt-12 pt-8 border-t border-[#2e2f2d]/15 grid grid-cols-1 sm:grid-cols-2 gap-6 text-xs text-[#2e2f2d]/75">
+              <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-[#2e2f2d]/15 grid grid-cols-1 sm:grid-cols-2 gap-6 text-xs text-[#2e2f2d]/75">
                 <div>
                   <p className="font-display font-bold uppercase tracking-wider text-[#2e2f2d] mb-2">
                     Media & Saluran

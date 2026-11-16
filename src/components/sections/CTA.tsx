@@ -43,14 +43,14 @@ export function CTA() {
           {/* Left Column: Direct Contact Info */}
           <div className="lg:col-span-5 flex flex-col justify-between">
             <div>
-              <span className="font-mono text-xs uppercase tracking-widest text-navy-900/60 block mb-2">
+              <span className="font-mono text-xs uppercase tracking-widest text-[#2e2f2d]/60 block mb-2">
                 Hubungi Kami
               </span>
-              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-tight text-navy-900 leading-[1.1]">
+              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-tight text-[#2e2f2d] leading-[1.1]">
                 Konsultasikan Kebutuhan Sistem Anda
               </h2>
 
-              <p className="mt-6 text-sm sm:text-base text-navy-900/75 leading-relaxed font-body">
+              <p className="mt-6 text-sm sm:text-base text-[#2e2f2d]/75 leading-relaxed font-body">
                 Diskusikan tantangan operasional perusahaan Anda bersama konsultan teknis Jamparing Masagi.
                 Kami siap mendemokan alur kerja tiap modul secara interaktif.
               </p>
@@ -62,18 +62,18 @@ export function CTA() {
                   href={`https://wa.me/${siteConfig.contact.whatsapp}?text=${encodeURIComponent(
                     "Halo Tim Jamparing Masagi, saya ingin mendiskusikan implementasi aplikasi ERP untuk perusahaan kami."
                   )}`}
-                  className="flex items-center gap-4 border border-[#deded6] bg-white p-4 transition-all hover:border-navy-900"
+                  className="flex items-center gap-4 border border-[#deded6] bg-white p-4 transition-all hover:border-[#2e2f2d]"
                 >
-                  <div className="flex h-10 w-10 items-center justify-center bg-navy-900 text-white shrink-0">
+                  <div className="flex h-10 w-10 items-center justify-center bg-[#2e2f2d] text-white shrink-0">
                     <MessageSquare className="h-5 w-5" />
                   </div>
                   <div className="flex-1">
-                    <p className="font-display text-xs font-bold uppercase text-navy-900">
+                    <p className="font-display text-xs font-bold uppercase text-[#2e2f2d]">
                       WhatsApp Bisnis
                     </p>
-                    <p className="text-xs text-navy-900/60">{siteConfig.contact.phone}</p>
+                    <p className="text-xs text-[#2e2f2d]/60">{siteConfig.contact.phone}</p>
                   </div>
-                  <ArrowUpRight className="h-4 w-4 text-navy-900/50" />
+                  <ArrowUpRight className="h-4 w-4 text-[#2e2f2d]/50" />
                 </ExternalLink>
 
                 {/* Email Link */}
@@ -81,26 +81,26 @@ export function CTA() {
                   href={`mailto:${siteConfig.contact.email}?subject=${encodeURIComponent(
                     "Pertanyaan Implementasi ERP Jamparing Masagi"
                   )}`}
-                  className="flex items-center gap-4 border border-[#deded6] bg-white p-4 transition-all hover:border-navy-900"
+                  className="flex items-center gap-4 border border-[#deded6] bg-white p-4 transition-all hover:border-[#2e2f2d]"
                 >
-                  <div className="flex h-10 w-10 items-center justify-center bg-navy-900 text-white shrink-0">
+                  <div className="flex h-10 w-10 items-center justify-center bg-[#2e2f2d] text-white shrink-0">
                     <Mail className="h-5 w-5" />
                   </div>
                   <div className="flex-1">
-                    <p className="font-display text-xs font-bold uppercase text-navy-900">
+                    <p className="font-display text-xs font-bold uppercase text-[#2e2f2d]">
                       Email Resmi
                     </p>
-                    <p className="text-xs text-navy-900/60">{siteConfig.contact.email}</p>
+                    <p className="text-xs text-[#2e2f2d]/60">{siteConfig.contact.email}</p>
                   </div>
-                  <ArrowUpRight className="h-4 w-4 text-navy-900/50" />
+                  <ArrowUpRight className="h-4 w-4 text-[#2e2f2d]/50" />
                 </ExternalLink>
               </div>
             </div>
 
-            <div className="mt-8 pt-6 border-t border-[#deded6] text-xs text-navy-900/60">
-              <p className="font-semibold text-navy-900 mb-1">{siteConfig.shortName}</p>
+            <div className="mt-8 pt-6 border-t border-[#deded6] text-xs text-[#2e2f2d]/60">
+              <p className="font-semibold text-[#2e2f2d] mb-1">{siteConfig.shortName}</p>
               <p>{siteConfig.contact.address}</p>
-              <p className="mt-2 text-[11px] text-navy-900/50">
+              <p className="mt-2 text-[11px] text-[#2e2f2d]/50">
                 TODO(isi-konten): Konfirmasi jam operasional & alamat detail kantor resmi
               </p>
             </div>
@@ -108,13 +108,13 @@ export function CTA() {
 
           {/* Right Column: Request Demo Form */}
           <div className="lg:col-span-7">
-            <div className="border border-navy-900 bg-white p-6 sm:p-10 shadow-sm">
+            <div className="border border-[#2e2f2d] bg-white p-6 sm:p-10 shadow-sm">
               <div className="flex items-center justify-between border-b border-[#deded6] pb-4 mb-6">
                 <div>
-                  <h3 className="font-display text-xl sm:text-2xl font-bold uppercase text-navy-900">
+                  <h3 className="font-display text-xl sm:text-2xl font-bold uppercase text-[#2e2f2d]">
                     Formulir Request Demo
                   </h3>
-                  <p className="text-xs text-navy-900/60 mt-1">
+                  <p className="text-xs text-[#2e2f2d]/60 mt-1">
                     Pilih aplikasi yang ingin Anda uji coba atau jadwalkan presentasi
                   </p>
                 </div>
@@ -125,17 +125,17 @@ export function CTA() {
 
               {submitted ? (
                 <div className="p-8 text-center bg-[#eeeee8] border border-[#deded6]">
-                  <CheckCircle2 className="h-12 w-12 text-navy-900 mx-auto mb-3" />
-                  <h4 className="font-display text-lg font-bold uppercase text-navy-900">
+                  <CheckCircle2 className="h-12 w-12 text-[#2e2f2d] mx-auto mb-3" />
+                  <h4 className="font-display text-lg font-bold uppercase text-[#2e2f2d]">
                     Permintaan Telah Diteruskan
                   </h4>
-                  <p className="text-xs sm:text-sm text-navy-900/70 mt-2">
+                  <p className="text-xs sm:text-sm text-[#2e2f2d]/70 mt-2">
                     Klien email Anda telah terbuka dengan rincian pesan. Tim sales & teknis kami akan merespons dalam waktu 1x24 jam kerja.
                   </p>
                   <button
                     type="button"
                     onClick={() => setSubmitted(false)}
-                    className="mt-6 inline-block text-xs font-display font-bold uppercase tracking-wider text-navy-900 underline"
+                    className="mt-6 inline-block text-xs font-display font-bold uppercase tracking-wider text-[#2e2f2d] underline"
                   >
                     Kirim formulir lain
                   </button>
@@ -158,7 +158,7 @@ export function CTA() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block font-display text-xs font-bold uppercase tracking-wider text-navy-900 mb-1">
+                      <label className="block font-display text-xs font-bold uppercase tracking-wider text-[#2e2f2d] mb-1">
                         Nama Lengkap *
                       </label>
                       <input
@@ -167,12 +167,12 @@ export function CTA() {
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="Contoh: Rian Anggoro"
-                        className="w-full border border-[#deded6] bg-[#fbfbf9] px-3.5 py-2.5 text-xs sm:text-sm text-navy-900 focus:border-navy-900 focus:outline-none"
+                        className="w-full border border-[#deded6] bg-[#fbfbf9] px-3.5 py-2.5 text-xs sm:text-sm text-[#2e2f2d] focus:border-[#2e2f2d] focus:outline-none"
                       />
                     </div>
 
                     <div>
-                      <label className="block font-display text-xs font-bold uppercase tracking-wider text-navy-900 mb-1">
+                      <label className="block font-display text-xs font-bold uppercase tracking-wider text-[#2e2f2d] mb-1">
                         Nama Perusahaan / Instansi *
                       </label>
                       <input
@@ -181,14 +181,14 @@ export function CTA() {
                         value={formData.company}
                         onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                         placeholder="Contoh: PT Sumber Tirta Abadi"
-                        className="w-full border border-[#deded6] bg-[#fbfbf9] px-3.5 py-2.5 text-xs sm:text-sm text-navy-900 focus:border-navy-900 focus:outline-none"
+                        className="w-full border border-[#deded6] bg-[#fbfbf9] px-3.5 py-2.5 text-xs sm:text-sm text-[#2e2f2d] focus:border-[#2e2f2d] focus:outline-none"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block font-display text-xs font-bold uppercase tracking-wider text-navy-900 mb-1">
+                      <label className="block font-display text-xs font-bold uppercase tracking-wider text-[#2e2f2d] mb-1">
                         Alamat Email Kerja *
                       </label>
                       <input
@@ -197,12 +197,12 @@ export function CTA() {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="nama@perusahaan.com"
-                        className="w-full border border-[#deded6] bg-[#fbfbf9] px-3.5 py-2.5 text-xs sm:text-sm text-navy-900 focus:border-navy-900 focus:outline-none"
+                        className="w-full border border-[#deded6] bg-[#fbfbf9] px-3.5 py-2.5 text-xs sm:text-sm text-[#2e2f2d] focus:border-[#2e2f2d] focus:outline-none"
                       />
                     </div>
 
                     <div>
-                      <label className="block font-display text-xs font-bold uppercase tracking-wider text-navy-900 mb-1">
+                      <label className="block font-display text-xs font-bold uppercase tracking-wider text-[#2e2f2d] mb-1">
                         Nomor WhatsApp / Telepon *
                       </label>
                       <input
@@ -211,19 +211,19 @@ export function CTA() {
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         placeholder="0812xxxxxxx"
-                        className="w-full border border-[#deded6] bg-[#fbfbf9] px-3.5 py-2.5 text-xs sm:text-sm text-navy-900 focus:border-navy-900 focus:outline-none"
+                        className="w-full border border-[#deded6] bg-[#fbfbf9] px-3.5 py-2.5 text-xs sm:text-sm text-[#2e2f2d] focus:border-[#2e2f2d] focus:outline-none"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block font-display text-xs font-bold uppercase tracking-wider text-navy-900 mb-1">
+                    <label className="block font-display text-xs font-bold uppercase tracking-wider text-[#2e2f2d] mb-1">
                       Modul Aplikasi yang Diminati *
                     </label>
                     <select
                       value={formData.selectedProduct}
                       onChange={(e) => setFormData({ ...formData, selectedProduct: e.target.value })}
-                      className="w-full border border-[#deded6] bg-[#fbfbf9] px-3.5 py-2.5 text-xs sm:text-sm text-navy-900 focus:border-navy-900 focus:outline-none"
+                      className="w-full border border-[#deded6] bg-[#fbfbf9] px-3.5 py-2.5 text-xs sm:text-sm text-[#2e2f2d] focus:border-[#2e2f2d] focus:outline-none"
                     >
                       <option value="Semua Produk (Full Suite)">Semua Modul (Full Suite ERP)</option>
                       <option value="DIGIARS (Digital Arsip)">DIGIARS — Digital Arsip Perusahaan</option>
@@ -235,7 +235,7 @@ export function CTA() {
                   </div>
 
                   <div>
-                    <label className="block font-display text-xs font-bold uppercase tracking-wider text-navy-900 mb-1">
+                    <label className="block font-display text-xs font-bold uppercase tracking-wider text-[#2e2f2d] mb-1">
                       Kebutuhan atau Catatan Tambahan (Opsional)
                     </label>
                     <textarea
@@ -243,7 +243,7 @@ export function CTA() {
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Ceritakan estimasi jumlah pengguna atau kendala operasional yang ingin diselesaikan..."
-                      className="w-full border border-[#deded6] bg-[#fbfbf9] px-3.5 py-2.5 text-xs sm:text-sm text-navy-900 focus:border-navy-900 focus:outline-none resize-none"
+                      className="w-full border border-[#deded6] bg-[#fbfbf9] px-3.5 py-2.5 text-xs sm:text-sm text-[#2e2f2d] focus:border-[#2e2f2d] focus:outline-none resize-none"
                     />
                   </div>
 
@@ -254,7 +254,7 @@ export function CTA() {
                     >
                       Kirim Permintaan Demo Sekarang
                     </button>
-                    <p className="mt-2 text-center text-[11px] text-navy-900/50">
+                    <p className="mt-2 text-center text-[11px] text-[#2e2f2d]/50">
                       Privasi terjamin. Data Anda tidak akan dibagikan kepada pihak ketiga.
                     </p>
                   </div>

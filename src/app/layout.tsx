@@ -72,7 +72,7 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col bg-[#f6f6f2] text-foreground font-body antialiased selection:bg-accent-500 selection:text-white">
         <SmoothScroll>
           <Navbar />
-          <main className="flex-1 pl-12 sm:pl-16">{children}</main>
+          <main className="flex-1 pl-0 md:pl-16">{children}</main>
           <Footer />
         </SmoothScroll>
       </body>

@@ -23,7 +23,7 @@ export function About() {
                   className="object-cover"
                 />
               </div>
-              <div className="mt-3 flex items-center justify-between px-2 text-[11px] font-mono text-navy-900/60">
+              <div className="mt-3 flex items-center justify-between px-2 text-[11px] font-mono text-[#2e2f2d]/60">
                 <span>DOKUMENTASI INTERNAL</span>
                 <span>ENGINEERING & PRODUCT DIVISION</span>
               </div>
@@ -33,32 +33,32 @@ export function About() {
           {/* Right: Narrative & Philosophy */}
           <div className="lg:col-span-6 flex flex-col justify-between">
             <div>
-              <span className="font-mono text-xs uppercase tracking-widest text-navy-900/60 block mb-2">
+              <span className="font-mono text-xs uppercase tracking-widest text-[#2e2f2d]/60 block mb-2">
                 Profil Perusahaan
               </span>
-              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-tight text-navy-900 leading-[1.1]">
+              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-tight text-[#2e2f2d] leading-[1.1]">
                 Tentang Jamparing Masagi
               </h2>
 
-              <p className="mt-6 text-sm sm:text-base text-navy-900/80 leading-relaxed font-body">
+              <p className="mt-6 text-sm sm:text-base text-[#2e2f2d]/80 leading-relaxed font-body">
                 Jamparing Masagi adalah pengembang perangkat lunak berdedikasi yang berfokus pada
                 pembuatan solusi digital untuk sektor enterprise, instansi pengelola utilitas, dan UMKM berkembang.
               </p>
 
-              <p className="mt-4 text-sm sm:text-base text-navy-900/80 leading-relaxed font-body">
+              <p className="mt-4 text-sm sm:text-base text-[#2e2f2d]/80 leading-relaxed font-body">
                 Melalui portofolio 5 modul spesifik kami (DIGIARS, WMS, PESANDONG, KEUANGAN, dan HRM),
                 kami mendesain sistem yang tidak berbelit-belit, fokus pada kemudahan pakai sehari-hari,
                 serta menghasilkan data analitik yang valid untuk keputusan pimpinan.
               </p>
 
               <div className="mt-8 grid grid-cols-2 gap-4 border-t border-[#deded6] pt-6 font-display">
-                <div className="border-l-2 border-navy-900 pl-4">
-                  <span className="text-2xl sm:text-3xl font-bold text-navy-900">5 Modul</span>
-                  <p className="text-xs text-navy-900/60 uppercase mt-1 font-mono">Portofolio Terintegrasi</p>
+                <div className="border-l-2 border-[#2e2f2d] pl-4">
+                  <span className="text-2xl sm:text-3xl font-bold text-[#2e2f2d]">5 Modul</span>
+                  <p className="text-xs text-[#2e2f2d]/60 uppercase mt-1 font-mono">Portofolio Terintegrasi</p>
                 </div>
                 <div className="border-l-2 border-accent-500 pl-4">
-                  <span className="text-2xl sm:text-3xl font-bold text-navy-900">100%</span>
-                  <p className="text-xs text-navy-900/60 uppercase mt-1 font-mono">Kedaulatan Data Lokal</p>
+                  <span className="text-2xl sm:text-3xl font-bold text-[#2e2f2d]">100%</span>
+                  <p className="text-xs text-[#2e2f2d]/60 uppercase mt-1 font-mono">Kedaulatan Data Lokal</p>
                 </div>
               </div>
             </div>

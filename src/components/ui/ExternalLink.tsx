@@ -22,7 +22,7 @@ export function ExternalLink({
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        "inline-flex items-center transition-colors hover:text-navy-900 focus:outline-none focus:ring-2 focus:ring-navy-600 focus:ring-offset-2",
+        "inline-flex items-center transition-colors hover:text-[#2e2f2d] focus:outline-none focus:ring-2 focus:ring-[#424441] focus:ring-offset-2",
         className
       )}
       {...props}

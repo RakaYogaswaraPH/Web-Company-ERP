@@ -40,23 +40,23 @@ export function WhyUs() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left Title & Statement */}
           <div className="lg:col-span-5">
-            <span className="font-mono text-xs uppercase tracking-widest text-navy-900/60 block mb-2">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#2e2f2d]/60 block mb-2">
               Karakteristik Sistem
             </span>
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-tight text-navy-900 leading-[1.1]">
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-tight text-[#2e2f2d] leading-[1.1]">
               Mengapa Memilih Jamparing Masagi?
             </h2>
-            <p className="mt-6 text-sm sm:text-base text-navy-900/75 leading-relaxed">
+            <p className="mt-6 text-sm sm:text-base text-[#2e2f2d]/75 leading-relaxed">
               Arsitektur aplikasi kami dibangun dengan fokus pada keandalan operasional,
               kecepatan olah data, dan kemudahan adopsi oleh staf lapangan maupun jajaran manajemen.
             </p>
 
             <div className="mt-8 border border-[#deded6] bg-white p-6">
-              <span className="font-mono text-xs text-navy-900/50 block mb-1">KOMITMEN KUALITAS</span>
-              <p className="font-display text-sm font-bold uppercase text-navy-900">
+              <span className="font-mono text-xs text-[#2e2f2d]/50 block mb-1">KOMITMEN KUALITAS</span>
+              <p className="font-display text-sm font-bold uppercase text-[#2e2f2d]">
                 Dukungan Purna Jual & Pelatihan Terjadwal
               </p>
-              <p className="mt-2 text-xs text-navy-900/70 leading-relaxed">
+              <p className="mt-2 text-xs text-[#2e2f2d]/70 leading-relaxed">
                 Setiap lisensi implementasi didampingi pendampingan migrasi data awal, pelatihan staf,
                 dan SLA dukungan teknis responsif.
               </p>
@@ -77,14 +77,14 @@ export function WhyUs() {
                       <span className="font-mono text-xs font-bold text-accent-500">
                         {adv.num}
                       </span>
-                      <IconComp className="h-4 w-4 text-navy-900/60" />
+                      <IconComp className="h-4 w-4 text-[#2e2f2d]/60" />
                     </div>
 
-                    <h3 className="font-display text-lg font-bold uppercase text-navy-900">
+                    <h3 className="font-display text-lg font-bold uppercase text-[#2e2f2d]">
                       {adv.title}
                     </h3>
 
-                    <p className="mt-3 text-xs sm:text-sm text-navy-900/70 leading-relaxed">
+                    <p className="mt-3 text-xs sm:text-sm text-[#2e2f2d]/70 leading-relaxed">
                       {adv.description}
                     </p>
                   </div>

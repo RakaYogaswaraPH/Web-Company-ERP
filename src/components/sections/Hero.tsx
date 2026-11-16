@@ -22,18 +22,18 @@ export function Hero() {
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             >
               {/* Product Badge */}
-              <div className="mb-6 inline-flex items-center gap-3 border border-navy-900/20 bg-[#eeeee8] px-3.5 py-1.5">
+              <div className="mb-6 inline-flex items-center gap-3 border border-[#2e2f2d]/20 bg-[#eeeee8] px-3.5 py-1.5">
                 <span className="h-2 w-2 rounded-full bg-accent-500 animate-pulse" />
-                <span className="font-display text-xs font-bold uppercase tracking-wider text-navy-900">
+                <span className="font-display text-xs font-bold uppercase tracking-wider text-[#2e2f2d]">
                   Jamparing Masagi • Integrated Business Suite
                 </span>
               </div>
 
-              <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tight text-navy-900 leading-[1.05] text-balance">
+              <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tight text-[#2e2f2d] leading-[1.05] text-balance">
                 Otomasi Dokumen, IoT Utilitas, Hingga Tata Kelola SDM.
               </h1>
 
-              <p className="mt-8 max-w-2xl text-base sm:text-lg text-navy-900/80 leading-relaxed font-body">
+              <p className="mt-8 max-w-2xl text-base sm:text-lg text-[#2e2f2d]/80 leading-relaxed font-body">
                 Satu ekosistem perangkat lunak terintegrasi untuk menjawab kompleksitas operasional:
                 dari pengarsipan berkas digital, telemetri pemakaian air real-time, transaksi kasir POS,
                 penagihan iuran & SPP bulanan, hingga absensi presisi, task management, dan administrasi surat menyurat.
@@ -51,7 +51,7 @@ export function Hero() {
 
                 <a
                   href="#contact"
-                  className="inline-flex items-center gap-2.5 border border-navy-900 bg-transparent px-6 py-3.5 font-display text-xs font-bold uppercase tracking-widest text-navy-900 transition-all hover:bg-navy-900 hover:text-white active:scale-95"
+                  className="inline-flex items-center gap-2.5 border border-[#2e2f2d] bg-transparent px-6 py-3.5 font-display text-xs font-bold uppercase tracking-widest text-[#2e2f2d] transition-all hover:bg-[#2e2f2d] hover:text-white active:scale-95"
                 >
                   Jadwalkan Diskusi Demo
                   <ArrowUpRight className="h-4 w-4" />
@@ -69,15 +69,15 @@ export function Hero() {
               className="flex flex-col gap-6"
             >
               <div className="flex items-baseline justify-between border-b border-[#deded6] pb-3">
-                <span className="font-display text-xs font-bold uppercase tracking-widest text-navy-900/60">
+                <span className="font-display text-xs font-bold uppercase tracking-widest text-[#2e2f2d]/60">
                   Arsitektur Solusi
                 </span>
-                <span className="font-mono text-xs font-bold text-navy-900">
+                <span className="font-mono text-xs font-bold text-[#2e2f2d]">
                   05 / SUITE
                 </span>
               </div>
 
-              <p className="text-xs text-navy-900/70 leading-relaxed">
+              <p className="text-xs text-[#2e2f2d]/70 leading-relaxed">
                 Setiap aplikasi dirancang mandiri (modular) namun dapat disinkronkan secara seamless
                 guna menghilangkan silo data antar divisi perusahaan.
               </p>
@@ -85,50 +85,50 @@ export function Hero() {
               {/* Quick Module List */}
               <div className="flex flex-col divide-y divide-[#deded6]">
                 <div className="py-2.5 flex items-center justify-between text-xs">
-                  <span className="font-display font-semibold text-navy-900 uppercase">
+                  <span className="font-display font-semibold text-[#2e2f2d] uppercase">
                     01 • DIGIARS
                   </span>
-                  <span className="text-[10px] uppercase font-mono px-2 py-0.5 bg-navy-900/10 text-navy-900">
+                  <span className="text-[10px] uppercase font-mono px-2 py-0.5 bg-[#2e2f2d]/10 text-[#2e2f2d]">
                     Live
                   </span>
                 </div>
                 <div className="py-2.5 flex items-center justify-between text-xs">
-                  <span className="font-display font-semibold text-navy-900 uppercase">
+                  <span className="font-display font-semibold text-[#2e2f2d] uppercase">
                     02 • WMS (Water IoT)
                   </span>
-                  <span className="text-[10px] uppercase font-mono px-2 py-0.5 bg-navy-900/10 text-navy-900">
+                  <span className="text-[10px] uppercase font-mono px-2 py-0.5 bg-[#2e2f2d]/10 text-[#2e2f2d]">
                     Live
                   </span>
                 </div>
                 <div className="py-2.5 flex items-center justify-between text-xs">
-                  <span className="font-display font-semibold text-navy-900 uppercase">
+                  <span className="font-display font-semibold text-[#2e2f2d] uppercase">
                     03 • PESANDONG (Kasir POS)
                   </span>
-                  <span className="text-[10px] uppercase font-mono px-2 py-0.5 bg-navy-900/10 text-navy-900">
+                  <span className="text-[10px] uppercase font-mono px-2 py-0.5 bg-[#2e2f2d]/10 text-[#2e2f2d]">
                     Live
                   </span>
                 </div>
                 <div className="py-2.5 flex items-center justify-between text-xs">
-                  <span className="font-display font-semibold text-navy-900 uppercase">
+                  <span className="font-display font-semibold text-[#2e2f2d] uppercase">
                     04 • KEUANGAN (Iuran & SPP)
                   </span>
-                  <span className="text-[10px] uppercase font-mono px-2 py-0.5 bg-navy-900/10 text-navy-900">
+                  <span className="text-[10px] uppercase font-mono px-2 py-0.5 bg-[#2e2f2d]/10 text-[#2e2f2d]">
                     Live
                   </span>
                 </div>
                 <div className="py-2.5 flex items-center justify-between text-xs">
-                  <span className="font-display font-semibold text-navy-900 uppercase">
+                  <span className="font-display font-semibold text-[#2e2f2d] uppercase">
                     05 • HRM (Absensi & Task)
                   </span>
-                  <span className="text-[10px] uppercase font-mono px-2 py-0.5 bg-navy-900/10 text-navy-900">
+                  <span className="text-[10px] uppercase font-mono px-2 py-0.5 bg-[#2e2f2d]/10 text-[#2e2f2d]">
                     Live
                   </span>
                 </div>
               </div>
 
               <div className="pt-2">
-                <div className="p-3 bg-[#eeeee8] border border-[#deded6] text-[11px] text-navy-900/70">
-                  <span className="font-bold text-navy-900 block mb-1">
+                <div className="p-3 bg-[#eeeee8] border border-[#deded6] text-[11px] text-[#2e2f2d]/70">
+                  <span className="font-bold text-[#2e2f2d] block mb-1">
                     Standard Mutu Jamparing Masagi
                   </span>
                   Keamanan data, audit trail terpusat, dan performa respon tinggi untuk produktivitas operasional.

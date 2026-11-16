@@ -11,14 +11,14 @@ export function ProductGrid() {
       <Container>
         <div className="flex flex-col md:flex-row md:items-end md:justify-between border-b border-[#deded6] pb-8">
           <div>
-            <span className="font-mono text-xs uppercase tracking-widest text-navy-900/60 block mb-2">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#2e2f2d]/60 block mb-2">
               Katalog Lengkap
             </span>
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-tight text-navy-900">
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-tight text-[#2e2f2d]">
               Spesifikasi Seluruh Modul
             </h2>
           </div>
-          <p className="mt-4 md:mt-0 max-w-md text-xs sm:text-sm text-navy-900/70">
+          <p className="mt-4 md:mt-0 max-w-md text-xs sm:text-sm text-[#2e2f2d]/70">
             Setiap modul dapat diimplementasikan secara terpisah sesuai skala prioritas divisi Anda,
             atau dihubungkan secara serentak.
           </p>
@@ -31,48 +31,48 @@ export function ProductGrid() {
               key={p.slug}
               className={`flex flex-col justify-between border bg-white p-6 sm:p-8 transition-shadow hover:shadow-md ${
                 p.status === "coming-soon"
-                  ? "border-dashed border-navy-900/30 bg-[#f9f9f6]"
+                  ? "border-dashed border-[#2e2f2d]/30 bg-[#f9f9f6]"
                   : "border-[#deded6]"
               }`}
             >
               <div>
                 <div className="flex items-center justify-between border-b border-[#deded6] pb-4 mb-5">
-                  <span className="font-mono text-xs font-bold text-navy-900/50">
+                  <span className="font-mono text-xs font-bold text-[#2e2f2d]/50">
                     0{idx + 1}
                   </span>
                   <StatusBadge status={p.status} />
                 </div>
 
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="flex h-10 w-10 items-center justify-center bg-navy-900 text-white">
+                  <div className="flex h-10 w-10 items-center justify-center bg-[#2e2f2d] text-white">
                     <ProductIcon name={p.icon} className="h-5 w-5" />
                   </div>
                   <div>
-                    <h3 className="font-display text-xl font-bold uppercase text-navy-900">
+                    <h3 className="font-display text-xl font-bold uppercase text-[#2e2f2d]">
                       {p.name}
                     </h3>
-                    <p className="font-mono text-[10px] uppercase text-navy-900/60">
+                    <p className="font-mono text-[10px] uppercase text-[#2e2f2d]/60">
                       {p.subtitle.split("&")[0]}
                     </p>
                   </div>
                 </div>
 
-                <p className="mt-3 text-xs sm:text-sm font-semibold text-navy-900 leading-snug">
+                <p className="mt-3 text-xs sm:text-sm font-semibold text-[#2e2f2d] leading-snug">
                   {p.tagline}
                 </p>
 
-                <p className="mt-2 text-xs text-navy-900/70 leading-relaxed">
+                <p className="mt-2 text-xs text-[#2e2f2d]/70 leading-relaxed">
                   {p.description}
                 </p>
 
                 <div className="mt-6 border-t border-[#deded6] pt-4">
-                  <p className="font-display text-[11px] font-bold uppercase tracking-wider text-navy-900 mb-2">
+                  <p className="font-display text-[11px] font-bold uppercase tracking-wider text-[#2e2f2d] mb-2">
                     Fitur Kunci:
                   </p>
                   <ul className="space-y-1.5">
                     {p.features.slice(0, 3).map((f, fIdx) => (
-                      <li key={fIdx} className="flex items-start gap-2 text-xs text-navy-900/75">
-                        <CheckCircle2 className="h-3.5 w-3.5 text-navy-900 shrink-0 mt-0.5" />
+                      <li key={fIdx} className="flex items-start gap-2 text-xs text-[#2e2f2d]/75">
+                        <CheckCircle2 className="h-3.5 w-3.5 text-[#2e2f2d] shrink-0 mt-0.5" />
                         <span className="line-clamp-2">{f}</span>
                       </li>
                     ))}
@@ -83,7 +83,7 @@ export function ProductGrid() {
               <div className="mt-8 pt-4 border-t border-[#deded6]">
                 <a
                   href="#contact"
-                  className="flex items-center justify-between text-xs font-display font-bold uppercase tracking-wider text-navy-900 hover:text-accent-500 transition-colors"
+                  className="flex items-center justify-between text-xs font-display font-bold uppercase tracking-wider text-[#2e2f2d] hover:text-accent-500 transition-colors"
                 >
                   <span>
                     {p.status === "coming-soon" ? "Daftar Tunggu" : "Minta Informasi Detail"}
@@ -95,7 +95,7 @@ export function ProductGrid() {
           ))}
 
           {/* 6th Card: Custom Integration Consulting */}
-          <div className="flex flex-col justify-between border border-navy-900 bg-navy-900 text-white p-6 sm:p-8">
+          <div className="flex flex-col justify-between border border-[#2e2f2d] bg-[#2e2f2d] text-white p-6 sm:p-8">
             <div>
               <div className="flex items-center justify-between border-b border-white/20 pb-4 mb-5">
                 <span className="font-mono text-xs font-bold text-accent-500">
