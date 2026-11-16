@@ -1,17 +1,30 @@
 import type { NextConfig } from "next";
-import withSerwistInit from "@serwist/next";
+
+const isDev = process.env.NODE_ENV === "development";
 
 const nextConfig: NextConfig = {
   output: "export",
   images: { unoptimized: true },
   trailingSlash: true,
   productionBrowserSourceMaps: false,
+  turbopack: {
+    rules: {
+      "*.css": {
+        loaders: ["@tailwindcss/turbopack"],
+        as: "*.css",
+      },
+    },
+  },
 };
 
-const withSerwist = withSerwistInit({
-  swSrc: "src/app/sw.ts",
-  swDest: "public/sw.js",
-  disable: process.env.NODE_ENV === "development",
-});
-
-export default withSerwist(nextConfig);
+export default async function config() {
+  if (isDev) {
+    return nextConfig;
+  }
+  const withSerwistInit = (await import("@serwist/next")).default;
+  const withSerwist = withSerwistInit({
+    swSrc: "src/app/sw.ts",
+    swDest: "public/sw.js",
+  });
+  return withSerwist(nextConfig);
+}
