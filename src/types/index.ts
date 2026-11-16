@@ -8,7 +8,7 @@ export interface Product {
   description: string;
   features: string[];
   status: ProductStatus;
-  icon: "archive" | "droplet" | "receipt" | "users" | "clock";
+  icon: "archive" | "droplet" | "shopping-bag" | "wallet" | "users" | "receipt" | "clock";
   screenshot?: string;
   highlight?: string;
 }

@@ -35,8 +35,8 @@ export function Hero() {
 
               <p className="mt-8 max-w-2xl text-base sm:text-lg text-navy-900/80 leading-relaxed font-body">
                 Satu ekosistem perangkat lunak terintegrasi untuk menjawab kompleksitas operasional:
-                dari pengarsipan berkas digital, telemetri pemakaian air real-time, manajemen iuran,
-                hingga administrasi HRD dan presensi presisi karyawan.
+                dari pengarsipan berkas digital, telemetri pemakaian air real-time, transaksi kasir POS,
+                penagihan iuran & SPP bulanan, hingga absensi presisi, task management, dan administrasi surat menyurat.
               </p>
 
               {/* Action Buttons */}
@@ -102,15 +102,7 @@ export function Hero() {
                 </div>
                 <div className="py-2.5 flex items-center justify-between text-xs">
                   <span className="font-display font-semibold text-navy-900 uppercase">
-                    03 • IurMoney
-                  </span>
-                  <span className="text-[10px] uppercase font-mono px-2 py-0.5 border border-navy-900/30 text-navy-900/70">
-                    Coming Soon
-                  </span>
-                </div>
-                <div className="py-2.5 flex items-center justify-between text-xs">
-                  <span className="font-display font-semibold text-navy-900 uppercase">
-                    04 • HRIS Masagi
+                    03 • PESANDONG (Kasir POS)
                   </span>
                   <span className="text-[10px] uppercase font-mono px-2 py-0.5 bg-navy-900/10 text-navy-900">
                     Live
@@ -118,7 +110,15 @@ export function Hero() {
                 </div>
                 <div className="py-2.5 flex items-center justify-between text-xs">
                   <span className="font-display font-semibold text-navy-900 uppercase">
-                    05 • AbsensiKu
+                    04 • KEUANGAN (Iuran & SPP)
+                  </span>
+                  <span className="text-[10px] uppercase font-mono px-2 py-0.5 bg-navy-900/10 text-navy-900">
+                    Live
+                  </span>
+                </div>
+                <div className="py-2.5 flex items-center justify-between text-xs">
+                  <span className="font-display font-semibold text-navy-900 uppercase">
+                    05 • HRM (Absensi & Task)
                   </span>
                   <span className="text-[10px] uppercase font-mono px-2 py-0.5 bg-navy-900/10 text-navy-900">
                     Live

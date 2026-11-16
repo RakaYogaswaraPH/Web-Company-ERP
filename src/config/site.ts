@@ -5,7 +5,7 @@ export const siteConfig: SiteConfig = {
   shortName: "Jamparing Masagi",
   tagline: "Ekosistem Perangkat Lunak Operasional Perusahaan Terintegrasi",
   description:
-    "Portofolio 5 aplikasi terintegrasi Jamparing Masagi untuk digitalisasi arsip, pemantauan IoT air, otomasi iuran, manajemen SDM, dan presensi kerja.",
+    "Portofolio 5 aplikasi terintegrasi Jamparing Masagi: DIGIARS (digital arsip), WMS (water monitoring IoT), PESANDONG (kasir POS), KEUANGAN (iuran/SPP/tagihan), dan HRM (absensi, task, surat menyurat).",
   url: "https://jamparingmasagi.id", // TODO(isi-konten): sesuaikan dengan domain resmi bila sudah ada
   contact: {
     email: "info@jamparingmasagi.id", // TODO(isi-konten): konfirmasi email resmi

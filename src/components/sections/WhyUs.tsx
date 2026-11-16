@@ -8,7 +8,7 @@ export function WhyUs() {
       num: "01",
       title: "Interkoneksi Tanpa Silo Data",
       description:
-        "Data kehadiran dari AbsensiKu langsung mengalir ke perhitungan gaji HRIS Masagi, sementara dokumen kontrak dan slip tersimpan rapi di DIGIARS tanpa perantara ekspor manual.",
+        "Data presensi dan tugas kerja di HRM terhubung langsung dengan dokumen arsip di DIGIARS, serta rekap omzet kasir PESANDONG dan penagihan KEUANGAN terpusat tanpa perantara ekspor manual.",
       icon: Layers,
     },
     {

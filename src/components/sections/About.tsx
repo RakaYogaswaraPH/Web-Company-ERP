@@ -46,7 +46,7 @@ export function About() {
               </p>
 
               <p className="mt-4 text-sm sm:text-base text-navy-900/80 leading-relaxed font-body">
-                Melalui portofolio 5 modul spesifik kami (DIGIARS, WMS, IurMoney, HRIS Masagi, dan AbsensiKu),
+                Melalui portofolio 5 modul spesifik kami (DIGIARS, WMS, PESANDONG, KEUANGAN, dan HRM),
                 kami mendesain sistem yang tidak berbelit-belit, fokus pada kemudahan pakai sehari-hari,
                 serta menghasilkan data analitik yang valid untuk keputusan pimpinan.
               </p>

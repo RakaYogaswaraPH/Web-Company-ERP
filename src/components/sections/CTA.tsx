@@ -227,10 +227,10 @@ export function CTA() {
                     >
                       <option value="Semua Produk (Full Suite)">Semua Modul (Full Suite ERP)</option>
                       <option value="DIGIARS (Digital Arsip)">DIGIARS — Digital Arsip Perusahaan</option>
-                      <option value="WMS (Water Management System)">WMS — IoT Telemetri & Pajak Air</option>
-                      <option value="IurMoney (Coming Soon)">IurMoney — Notifikasi Rilis Money Collection</option>
-                      <option value="HRIS Masagi (SDM & Payroll)">HRIS Masagi — Manajemen SDM & Payroll</option>
-                      <option value="AbsensiKu (Presensi Karyawan)">AbsensiKu — Presensi Geofencing</option>
+                      <option value="WMS (Water Monitoring System)">WMS — Water Monitoring System IoT</option>
+                      <option value="PESANDONG (Kasir POS)">PESANDONG — Kasir POS & Inventori Ritel</option>
+                      <option value="KEUANGAN (Iuran & SPP)">KEUANGAN — Manajemen Iuran, SPP & Tagihan</option>
+                      <option value="HRM (Absensi, Task & Surat)">HRM — Absensi, Task Management & Surat Menyurat</option>
                     </select>
                   </div>
 

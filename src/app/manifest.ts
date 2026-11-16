@@ -7,7 +7,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "ERP Jamparing Masagi",
     short_name: "Jamparing Masagi",
     description:
-      "Portofolio aplikasi ERP Jamparing Masagi: DIGIARS, WMS, IurMoney, HRIS Masagi, dan AbsensiKu.",
+      "Portofolio aplikasi ERP Jamparing Masagi: DIGIARS, WMS, PESANDONG, KEUANGAN, dan HRM.",
     start_url: "/",
     display: "standalone",
     background_color: "#f6f6f2",

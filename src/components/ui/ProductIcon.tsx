@@ -1,5 +1,5 @@
 import React from "react";
-import { Archive, Droplet, Receipt, Users, Clock, LucideProps } from "lucide-react";
+import { Archive, Droplet, Receipt, Users, Clock, ShoppingBag, Wallet, LucideProps } from "lucide-react";
 import { Product } from "@/types";
 
 interface ProductIconProps extends LucideProps {
@@ -12,6 +12,10 @@ export function ProductIcon({ name, ...props }: ProductIconProps) {
       return <Archive {...props} />;
     case "droplet":
       return <Droplet {...props} />;
+    case "shopping-bag":
+      return <ShoppingBag {...props} />;
+    case "wallet":
+      return <Wallet {...props} />;
     case "receipt":
       return <Receipt {...props} />;
     case "users":
