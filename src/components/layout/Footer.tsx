@@ -17,11 +17,11 @@ export function Footer() {
             <div>
               <div className="flex items-center gap-3 mb-6">
                 <div
-                  className="relative h-10 w-36 brightness-0 invert"
+                  className="relative h-10 w-36"
                   style={{ position: "relative" }}
                 >
                   <Image
-                    src="/assets/logo/logo.webp"
+                    src="/assets/logo/logo-white.webp"
                     alt="Logo Jamparing Masagi"
                     fill
                     className="object-contain object-left"

@@ -40,8 +40,13 @@ export const metadata: Metadata = {
   authors: [{ name: siteConfig.shortName, url: siteConfig.url }],
   creator: siteConfig.shortName,
   icons: {
-    icon: "/icons/icon-192.png",
-    apple: "/icons/icon-192.png",
+    icon: [
+      { url: "/assets/brands/Icons.webp", type: "image/webp" },
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
+    ],
+    shortcut: "/assets/brands/Icons.webp",
+    apple: "/assets/brands/Icons.webp",
   },
   manifest: "/manifest.webmanifest",
 };

@@ -26,7 +26,7 @@ export function Navbar() {
                 style={{ position: "relative" }}
               >
                 <Image
-                  src="/assets/logo/logo.webp"
+                  src="/assets/logo/logo-dark.webp"
                   alt="Logo Jamparing Masagi"
                   fill
                   priority
