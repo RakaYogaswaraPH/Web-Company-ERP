@@ -142,9 +142,9 @@ export function CTA() {
             </div>
           </div>
 
-          {/* Right Column: Request Demo Form (Clean #eff1ea Background, No Outer Border) */}
+          {/* Right Column: Request Demo Form (Clean #f6f6f2 Background, No Outer Border) */}
           <div className="lg:col-span-7">
-            <div className="bg-[#eff1ea] p-6 sm:p-10 shadow-sm">
+            <div className="bg-[#f6f6f2] p-6 sm:p-10">
               <div className="flex items-center justify-between border-b border-[#2e2f2d]/15 pb-4 mb-6">
                 <div>
                   <h3 className="font-display text-xl sm:text-2xl font-bold uppercase text-[#2e2f2d]">
@@ -271,7 +271,7 @@ export function CTA() {
                         <span className="font-semibold text-[#2e2f2d] truncate">
                           {selectedOption.label}
                         </span>
-                        <span className="hidden sm:inline font-mono text-[10px] text-[#2e2f2d]/50 bg-[#eff1ea] px-1.5 py-0.5 shrink-0">
+                        <span className="hidden sm:inline font-mono text-[10px] text-[#2e2f2d]/50 bg-[#eeeee8] px-1.5 py-0.5 shrink-0">
                           {selectedOption.tag}
                         </span>
                       </div>
