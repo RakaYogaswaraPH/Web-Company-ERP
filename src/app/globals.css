@@ -2,12 +2,16 @@
 
 @theme {
   --color-background: #f6f6f2;
-  --color-foreground: #0b1221;
+  --color-foreground: #2e2f2d;
+  --color-footer: #eff1ea;
 
-  --color-navy-50: #eef2fa;
-  --color-navy-100: #dce4f4;
-  --color-navy-600: #1c3a6e;
-  --color-navy-900: #0b1d3a;
+  --color-navy-50: #f4f5f1;
+  --color-navy-100: #e5e7e0;
+  --color-navy-600: #424441;
+  --color-navy-900: #2e2f2d;
+
+  --color-charcoal: #2e2f2d;
+  --color-charcoal-light: #424441;
 
   --color-accent-500: #d6293e;
   --color-accent-600: #b81f33;
@@ -19,12 +23,12 @@
 html {
   scroll-behavior: smooth;
   background-color: #f6f6f2;
-  color: #0b1221;
+  color: #2e2f2d;
 }
 
 body {
   background-color: #f6f6f2;
-  color: #0b1221;
+  color: #2e2f2d;
   font-family: var(--font-open-sans), sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

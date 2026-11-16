@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { X, ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { navItems, siteConfig } from "@/config/site";
 import { motion, AnimatePresence } from "motion/react";
@@ -13,13 +13,50 @@ export function Navbar() {
 
   return (
     <>
-      <header className="sticky top-0 z-40 w-full border-b border-[#deded6] bg-[#f6f6f2]/95 backdrop-blur-md transition-colors">
+      {/* 1. THINKING ROOM FLOATING SIDE DOCK (Left Edge) */}
+      <aside
+        onClick={() => setIsOpen(true)}
+        className="fixed left-0 top-0 bottom-0 z-50 flex w-12 sm:w-16 flex-col items-center justify-between py-6 border-r border-[#2e2f2d]/15 bg-[#f6f6f2]/20 backdrop-blur-[2px] transition-all duration-300 hover:bg-[#eff1ea] hover:shadow-lg cursor-pointer group select-none"
+        title="Klik untuk membuka menu navigasi"
+        aria-label="Buka Navigasi Samping"
+      >
+        {/* Top: Brand Emblem Mark */}
+        <div className="relative flex h-8 w-8 items-center justify-center transition-transform duration-300 group-hover:scale-110">
+          <Image
+            src="/assets/brands/Icons.webp"
+            alt="Jamparing Masagi Icon"
+            width={28}
+            height={28}
+            className="object-contain"
+          />
+        </div>
+
+        {/* Middle: Thinking Room 3-Bars Symbol (|||) */}
+        <div className="flex flex-col items-center gap-1.5 py-4">
+          <div className="flex items-center gap-1">
+            <span className="h-6 w-[2px] bg-[#2e2f2d]/70 transition-all duration-300 group-hover:h-8 group-hover:bg-accent-500" />
+            <span className="h-6 w-[2px] bg-[#2e2f2d]/70 transition-all duration-300 group-hover:h-8 group-hover:bg-[#2e2f2d]" />
+            <span className="h-6 w-[2px] bg-[#2e2f2d]/70 transition-all duration-300 group-hover:h-8 group-hover:bg-accent-500" />
+          </div>
+          <span className="mt-2 font-display text-[9px] font-bold uppercase tracking-widest text-[#2e2f2d]/50 opacity-0 group-hover:opacity-100 transition-opacity">
+            MENU
+          </span>
+        </div>
+
+        {/* Bottom: Vertical Text Stamp */}
+        <div className="flex flex-col items-center gap-3 font-mono text-[9px] font-semibold uppercase tracking-widest text-[#2e2f2d]/60 [writing-mode:vertical-rl] rotate-180">
+          <span>MASAGI • ERP</span>
+        </div>
+      </aside>
+
+      {/* 2. TOP NAVBAR */}
+      <header className="sticky top-0 z-40 w-full border-b border-[#deded6] bg-[#f6f6f2]/95 backdrop-blur-md transition-colors pl-12 sm:pl-16">
         <Container>
           <div className="flex h-20 items-center justify-between">
-            {/* Logo Jamparing Masagi */}
+            {/* Left: Logo Jamparing Masagi */}
             <Link
               href="/"
-              className="flex items-center gap-3 transition-opacity hover:opacity-90 focus:outline-none"
+              className="flex items-center gap-3 transition-opacity hover:opacity-90 focus:outline-none shrink-0"
             >
               <div
                 className="relative h-9 w-32 sm:w-36"
@@ -33,98 +70,171 @@ export function Navbar() {
                   className="object-contain object-left"
                 />
               </div>
-              <span className="hidden h-5 w-px bg-[#deded6] md:inline-block" />
-              <span className="hidden font-display text-xs font-bold uppercase tracking-widest text-navy-900 md:inline-block">
-                ERP SUITE
-              </span>
             </Link>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden items-center gap-8 lg:flex">
-              {navItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="group relative font-display text-xs font-semibold uppercase tracking-widest text-navy-900/80 transition-colors hover:text-navy-900"
-                >
-                  {item.label}
-                  <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-navy-900 transition-all duration-200 group-hover:w-full" />
-                </Link>
-              ))}
-            </nav>
+            {/* Center: "Enterprise Resource Planning" text */}
+            <div className="hidden md:flex items-center justify-center flex-1 px-4 text-center">
+              <span className="font-display text-xs lg:text-sm font-bold uppercase tracking-[0.25em] text-[#2e2f2d]">
+                Enterprise Resource Planning
+              </span>
+            </div>
 
-            {/* Action Buttons & Mobile Hamburger */}
-            <div className="flex items-center gap-3">
+            {/* Right: Actions */}
+            <div className="flex items-center gap-3 shrink-0">
               <a
                 href="#contact"
-                className="hidden sm:inline-flex items-center gap-2 border border-navy-900 bg-navy-900 px-5 py-2.5 font-display text-xs font-bold uppercase tracking-wider text-white transition-all hover:bg-accent-500 hover:border-accent-500 active:scale-95"
+                className="inline-flex items-center gap-2 border border-[#2e2f2d] bg-[#2e2f2d] px-4 sm:px-5 py-2.5 font-display text-xs font-bold uppercase tracking-wider text-white transition-all hover:bg-accent-500 hover:border-accent-500 active:scale-95 shadow-sm"
               >
                 Request Demo
                 <ArrowUpRight className="h-3.5 w-3.5" />
               </a>
 
-              {/* Hamburger Button */}
+              {/* Hamburger Button that triggers Thinking Room Drawer */}
               <button
                 type="button"
-                onClick={() => setIsOpen(!isOpen)}
-                aria-label={isOpen ? "Tutup Menu" : "Buka Menu"}
-                className="flex h-10 w-10 items-center justify-center border border-[#deded6] text-navy-900 transition-colors hover:border-navy-900 focus:outline-none lg:hidden"
+                onClick={() => setIsOpen(true)}
+                aria-label="Buka Menu"
+                className="flex h-10 w-10 items-center justify-center border border-[#deded6] text-[#2e2f2d] transition-colors hover:border-[#2e2f2d] hover:bg-[#eff1ea] focus:outline-none"
               >
-                {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                <div className="flex flex-col gap-1 w-4">
+                  <span className="h-[2px] w-full bg-[#2e2f2d]" />
+                  <span className="h-[2px] w-full bg-[#2e2f2d]" />
+                  <span className="h-[2px] w-full bg-[#2e2f2d]" />
+                </div>
               </button>
             </div>
           </div>
         </Container>
       </header>
 
-      {/* Thinking Room Style Full-screen / Overlay Menu */}
+      {/* 3. THINKING ROOM FULL SLIDE-OUT DRAWER */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="fixed inset-x-0 top-20 z-30 border-b border-[#deded6] bg-[#f6f6f2] p-6 shadow-xl lg:hidden"
-          >
-            <div className="flex flex-col gap-6">
-              <p className="font-display text-[11px] uppercase tracking-widest text-navy-900/50">
-                Menu Navigasi
-              </p>
-              <div className="flex flex-col gap-4">
-                {navItems.map((item, idx) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={() => setIsOpen(false)}
-                    className="flex items-baseline justify-between border-b border-[#deded6] pb-3 text-left font-display text-2xl font-bold uppercase text-navy-900 transition-colors hover:text-accent-500"
-                  >
-                    <span>{item.label}</span>
-                    <span className="font-mono text-xs text-navy-900/40">
-                      0{idx + 1}
+          <div className="fixed inset-0 z-50 overflow-hidden">
+            {/* Backdrop Overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              onClick={() => setIsOpen(false)}
+              className="absolute inset-0 bg-[#2e2f2d]/50 backdrop-blur-xs"
+            />
+
+            {/* Slide-out Panel from Left */}
+            <motion.div
+              initial={{ x: "-100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "-100%" }}
+              transition={{ type: "spring", damping: 28, stiffness: 260 }}
+              className="relative h-full w-full max-w-xl sm:max-w-2xl bg-[#eff1ea] border-r border-[#dcdfd5] shadow-2xl flex flex-col justify-between p-8 sm:p-14 overflow-y-auto"
+            >
+              {/* Drawer Header */}
+              <div>
+                <div className="flex items-center justify-between border-b border-[#2e2f2d]/15 pb-6">
+                  <div className="flex items-center gap-3">
+                    <div
+                      className="relative h-8 w-28 sm:w-32"
+                      style={{ position: "relative" }}
+                    >
+                      <Image
+                        src="/assets/logo/logo-dark.webp"
+                        alt="Logo Jamparing Masagi"
+                        fill
+                        className="object-contain object-left"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-4">
+                    <span className="hidden sm:inline font-display text-[10px] font-bold uppercase tracking-widest text-[#2e2f2d]/60">
+                      WE EMPOWER ENTERPRISE
                     </span>
-                  </Link>
-                ))}
+                    <button
+                      type="button"
+                      onClick={() => setIsOpen(false)}
+                      aria-label="Tutup Menu"
+                      className="flex h-10 w-10 items-center justify-center border border-[#2e2f2d] bg-[#2e2f2d] text-white transition-all hover:bg-accent-500 hover:border-accent-500 focus:outline-none cursor-pointer"
+                    >
+                      <X className="h-5 w-5" />
+                    </button>
+                  </div>
+                </div>
+
+                {/* Main Giant Typographic Nav Links (Thinking Room style) */}
+                <nav className="mt-10 sm:mt-12 flex flex-col gap-4 sm:gap-6">
+                  {navItems.map((item, idx) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setIsOpen(false)}
+                      className="group flex items-baseline justify-between border-b border-[#2e2f2d]/10 pb-3 sm:pb-4 text-left transition-all"
+                    >
+                      <div className="flex items-baseline gap-4 sm:gap-6">
+                        <span className="font-mono text-xs sm:text-sm font-bold text-[#2e2f2d]/40 group-hover:text-accent-500 transition-colors">
+                          0{idx + 1}
+                        </span>
+                        <span className="font-display text-3xl sm:text-5xl font-bold uppercase tracking-tight text-[#2e2f2d] transition-all group-hover:translate-x-2 group-hover:text-accent-500">
+                          {item.label}
+                        </span>
+                      </div>
+                      <ArrowUpRight className="h-5 w-5 sm:h-6 sm:w-6 text-[#2e2f2d]/30 opacity-0 group-hover:opacity-100 group-hover:text-accent-500 transition-all -translate-y-1 group-hover:translate-y-0" />
+                    </Link>
+                  ))}
+                </nav>
               </div>
 
-              <div className="pt-2">
-                <a
-                  href="#contact"
-                  onClick={() => setIsOpen(false)}
-                  className="flex w-full items-center justify-center gap-2 bg-navy-900 py-3.5 font-display text-sm font-bold uppercase tracking-wider text-white hover:bg-accent-500"
-                >
-                  Request Demo Langsung
-                  <ArrowUpRight className="h-4 w-4" />
-                </a>
-              </div>
+              {/* Drawer Footer Info */}
+              <div className="mt-12 pt-8 border-t border-[#2e2f2d]/15 grid grid-cols-1 sm:grid-cols-2 gap-6 text-xs text-[#2e2f2d]/75">
+                <div>
+                  <p className="font-display font-bold uppercase tracking-wider text-[#2e2f2d] mb-2">
+                    Media & Saluran
+                  </p>
+                  <ul className="space-y-1 font-body">
+                    <li>
+                      <a
+                        href={`https://wa.me/${siteConfig.contact.whatsapp}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-accent-500 transition-colors"
+                      >
+                        WhatsApp Bisnis
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://linkedin.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-accent-500 transition-colors"
+                      >
+                        LinkedIn Resmi
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://instagram.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-accent-500 transition-colors"
+                      >
+                        Instagram Portfolio
+                      </a>
+                    </li>
+                  </ul>
+                </div>
 
-              <div className="pt-4 border-t border-[#deded6] flex flex-col gap-1 text-xs text-navy-900/70">
-                <p className="font-semibold text-navy-900">{siteConfig.shortName}</p>
-                <p>{siteConfig.contact.email}</p>
-                <p>{siteConfig.contact.phone}</p>
+                <div>
+                  <p className="font-display font-bold uppercase tracking-wider text-[#2e2f2d] mb-2">
+                    Kontak Langsung
+                  </p>
+                  <p className="font-mono">{siteConfig.contact.email}</p>
+                  <p className="font-mono mt-1">{siteConfig.contact.phone}</p>
+                  <p className="mt-2 text-[11px] text-[#2e2f2d]/60">{siteConfig.contact.address}</p>
+                </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         )}
       </AnimatePresence>
     </>
