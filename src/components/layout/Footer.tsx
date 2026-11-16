@@ -92,7 +92,7 @@ export function Footer() {
                 href="#contact"
                 className="inline-block bg-[#2e2f2d] hover:bg-accent-500 px-5 py-2.5 font-display text-[11px] font-bold uppercase tracking-wider text-white transition-all shadow-sm"
               >
-                Request Demo Sekarang
+                Uji Coba Sekarang
               </a>
             </div>
           </div>

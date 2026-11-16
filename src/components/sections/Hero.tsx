@@ -7,136 +7,45 @@ import { motion } from "motion/react";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden border-b border-[#deded6] pt-12 pb-16 lg:pt-20 lg:pb-24">
+    <section className="relative overflow-hidden border-b border-[#deded6] pt-16 pb-20 lg:pt-28 lg:pb-32">
       {/* Decorative vertical editorial lines */}
       <div className="pointer-events-none absolute inset-y-0 left-8 hidden border-r border-[#deded6]/60 xl:block" />
       <div className="pointer-events-none absolute inset-y-0 right-8 hidden border-l border-[#deded6]/60 xl:block" />
 
       <Container>
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-8 items-start">
-          {/* Main Headline & Lead */}
-          <div className="lg:col-span-8 flex flex-col justify-between">
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col items-center text-center"
+        >
+          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tight text-[#2e2f2d] leading-[1.05] text-balance max-w-5xl">
+            Unleash your business growth potential.
+          </h1>
+
+          <p className="mt-8 max-w-2xl text-base sm:text-lg text-[#2e2f2d]/75 leading-relaxed font-body">
+            Optimalkan dan penuhi semua kebutuhan bisnis Anda dalam satu platform dengan mudah, efisien, dan terjangkau.
+          </p>
+
+          {/* Action Buttons */}
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+            <a
+              href="#portfolio"
+              className="inline-flex items-center gap-2.5 bg-accent-500 px-6 py-3.5 font-display text-xs font-bold uppercase tracking-widest text-white transition-all hover:bg-accent-600 active:scale-95 shadow-sm"
             >
-              {/* Product Badge */}
-              <div className="mb-6 inline-flex items-center gap-3 border border-[#2e2f2d]/20 bg-[#eeeee8] px-3.5 py-1.5">
-                <span className="h-2 w-2 rounded-full bg-accent-500 animate-pulse" />
-                <span className="font-display text-xs font-bold uppercase tracking-wider text-[#2e2f2d]">
-                  Jamparing Masagi • Integrated Business Suite
-                </span>
-              </div>
+              Mulai Sekarang
+              <ArrowDown className="h-4 w-4" />
+            </a>
 
-              <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tight text-[#2e2f2d] leading-[1.05] text-balance">
-                Otomasi Dokumen, IoT Utilitas, Hingga Tata Kelola SDM.
-              </h1>
-
-              <p className="mt-8 max-w-2xl text-base sm:text-lg text-[#2e2f2d]/80 leading-relaxed font-body">
-                Satu ekosistem perangkat lunak terintegrasi untuk menjawab kompleksitas operasional:
-                dari pengarsipan berkas digital, telemetri pemakaian air real-time, transaksi kasir POS,
-                penagihan iuran & SPP bulanan, hingga absensi presisi, task management, dan administrasi surat menyurat.
-              </p>
-
-              {/* Action Buttons */}
-              <div className="mt-10 flex flex-wrap items-center gap-4">
-                <a
-                  href="#portfolio"
-                  className="inline-flex items-center gap-2.5 bg-accent-500 px-6 py-3.5 font-display text-xs font-bold uppercase tracking-widest text-white transition-all hover:bg-accent-600 active:scale-95 shadow-sm"
-                >
-                  Eksplorasi 5 Produk
-                  <ArrowDown className="h-4 w-4" />
-                </a>
-
-                <a
-                  href="#contact"
-                  className="inline-flex items-center gap-2.5 border border-[#2e2f2d] bg-transparent px-6 py-3.5 font-display text-xs font-bold uppercase tracking-widest text-[#2e2f2d] transition-all hover:bg-[#2e2f2d] hover:text-white active:scale-95"
-                >
-                  Jadwalkan Diskusi Demo
-                  <ArrowUpRight className="h-4 w-4" />
-                </a>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Thinking Room Style Side Column */}
-          <div className="lg:col-span-4 border-t border-[#deded6] pt-6 lg:border-t-0 lg:border-l lg:border-[#deded6] lg:pt-0 lg:pl-8">
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col gap-6"
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2.5 border border-[#2e2f2d] bg-transparent px-6 py-3.5 font-display text-xs font-bold uppercase tracking-widest text-[#2e2f2d] transition-all hover:bg-[#2e2f2d] hover:text-white active:scale-95"
             >
-              <div className="flex items-baseline justify-between border-b border-[#deded6] pb-3">
-                <span className="font-display text-xs font-bold uppercase tracking-widest text-[#2e2f2d]/60">
-                  Arsitektur Solusi
-                </span>
-                <span className="font-mono text-xs font-bold text-[#2e2f2d]">
-                  05 / SUITE
-                </span>
-              </div>
-
-              <p className="text-xs text-[#2e2f2d]/70 leading-relaxed">
-                Setiap aplikasi dirancang mandiri (modular) namun dapat disinkronkan secara seamless
-                guna menghilangkan silo data antar divisi perusahaan.
-              </p>
-
-              {/* Quick Module List */}
-              <div className="flex flex-col divide-y divide-[#deded6]">
-                <div className="py-2.5 flex items-center justify-between text-xs">
-                  <span className="font-display font-semibold text-[#2e2f2d] uppercase">
-                    01 • DIGIARS
-                  </span>
-                  <span className="text-[10px] uppercase font-mono px-2 py-0.5 bg-[#2e2f2d]/10 text-[#2e2f2d]">
-                    Live
-                  </span>
-                </div>
-                <div className="py-2.5 flex items-center justify-between text-xs">
-                  <span className="font-display font-semibold text-[#2e2f2d] uppercase">
-                    02 • WMS (Water IoT)
-                  </span>
-                  <span className="text-[10px] uppercase font-mono px-2 py-0.5 bg-[#2e2f2d]/10 text-[#2e2f2d]">
-                    Live
-                  </span>
-                </div>
-                <div className="py-2.5 flex items-center justify-between text-xs">
-                  <span className="font-display font-semibold text-[#2e2f2d] uppercase">
-                    03 • PESANDONG (Kasir POS)
-                  </span>
-                  <span className="text-[10px] uppercase font-mono px-2 py-0.5 bg-[#2e2f2d]/10 text-[#2e2f2d]">
-                    Live
-                  </span>
-                </div>
-                <div className="py-2.5 flex items-center justify-between text-xs">
-                  <span className="font-display font-semibold text-[#2e2f2d] uppercase">
-                    04 • KEUANGAN (Iuran & SPP)
-                  </span>
-                  <span className="text-[10px] uppercase font-mono px-2 py-0.5 bg-[#2e2f2d]/10 text-[#2e2f2d]">
-                    Live
-                  </span>
-                </div>
-                <div className="py-2.5 flex items-center justify-between text-xs">
-                  <span className="font-display font-semibold text-[#2e2f2d] uppercase">
-                    05 • HRM (Absensi & Task)
-                  </span>
-                  <span className="text-[10px] uppercase font-mono px-2 py-0.5 bg-[#2e2f2d]/10 text-[#2e2f2d]">
-                    Live
-                  </span>
-                </div>
-              </div>
-
-              <div className="pt-2">
-                <div className="p-3 bg-[#eeeee8] border border-[#deded6] text-[11px] text-[#2e2f2d]/70">
-                  <span className="font-bold text-[#2e2f2d] block mb-1">
-                    Standard Mutu Jamparing Masagi
-                  </span>
-                  Keamanan data, audit trail terpusat, dan performa respon tinggi untuk produktivitas operasional.
-                </div>
-              </div>
-            </motion.div>
+              Jadwalkan Uji Coba
+              <ArrowUpRight className="h-4 w-4" />
+            </a>
           </div>
-        </div>
+        </motion.div>
       </Container>
     </section>
   );

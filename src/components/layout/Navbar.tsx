@@ -103,7 +103,7 @@ export function Navbar() {
                 href="#contact"
                 className="inline-flex items-center gap-2 border border-[#2e2f2d] bg-[#2e2f2d] px-5 py-2.5 font-display text-xs font-bold uppercase tracking-wider text-white transition-all hover:bg-accent-500 hover:border-accent-500 active:scale-95 shadow-sm"
               >
-                Request Demo
+                Ajukan Uji Coba
                 <ArrowUpRight className="h-3.5 w-3.5" />
               </a>
             </div>

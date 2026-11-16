@@ -30,7 +30,7 @@ export function About() {
           {/* Right: Narrative & Philosophy */}
           <div className="lg:col-span-6 flex flex-col justify-between">
             <div>
-              <span className="font-mono text-xs uppercase tracking-widest text-[#2e2f2d]/60 block mb-2">
+              <span className="font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-[#2e2f2d]/60 block mb-2">
                 Profil Perusahaan
               </span>
               <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-tight text-[#2e2f2d] leading-[1.1]">

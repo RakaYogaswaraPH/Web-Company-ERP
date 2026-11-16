@@ -43,7 +43,7 @@ export function CTA() {
           {/* Left Column: Direct Contact Info */}
           <div className="lg:col-span-5 flex flex-col justify-between">
             <div>
-              <span className="font-mono text-xs uppercase tracking-widest text-[#2e2f2d]/60 block mb-2">
+              <span className="font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-[#2e2f2d]/60 block mb-2">
                 Hubungi Kami
               </span>
               <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-tight text-[#2e2f2d] leading-[1.1]">
@@ -112,7 +112,7 @@ export function CTA() {
               <div className="flex items-center justify-between border-b border-[#deded6] pb-4 mb-6">
                 <div>
                   <h3 className="font-display text-xl sm:text-2xl font-bold uppercase text-[#2e2f2d]">
-                    Formulir Request Demo
+                    Formulir Permintaan Uji Coba
                   </h3>
                   <p className="text-xs text-[#2e2f2d]/60 mt-1">
                     Pilih aplikasi yang ingin Anda uji coba atau jadwalkan presentasi

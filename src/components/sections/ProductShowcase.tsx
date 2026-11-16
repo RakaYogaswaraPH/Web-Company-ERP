@@ -3,9 +3,8 @@
 import React, { useState } from "react";
 import { Container } from "@/components/ui/Container";
 import { products } from "@/data/products";
-import { StatusBadge } from "@/components/ui/StatusBadge";
 import { ProductIcon } from "@/components/ui/ProductIcon";
-import { ChevronLeft, ChevronRight, ArrowUpRight, CheckCircle2, ShieldCheck, Layers } from "lucide-react";
+import { ChevronLeft, ChevronRight, ArrowUpRight, CheckCircle2, ShieldCheck } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/lib/utils";
 
@@ -27,13 +26,11 @@ export function ProductShowcase() {
         {/* Editorial Header & Controls */}
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between border-b border-[#deded6] pb-8">
           <div>
-            <div className="flex items-center gap-2 mb-2 font-mono text-xs uppercase tracking-widest text-[#2e2f2d]/60">
-              <span>Portofolio ERP</span>
-              <span>/</span>
-              <span>{String(activeIndex + 1).padStart(2, "0")} Dari 05</span>
-            </div>
+            <span className="font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-[#2e2f2d]/60 block mb-2">
+              SOFTWARE ERP
+            </span>
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-tight text-[#2e2f2d]">
-              5 Solusi Penggerak Operasional
+              Solusi Kami
             </h2>
           </div>
 
@@ -119,13 +116,6 @@ export function ProductShowcase() {
               {/* Left Column: Product Information & Features */}
               <div className="lg:col-span-6 flex flex-col justify-between py-2">
                 <div>
-                  <div className="flex items-center gap-3 mb-4">
-                    <StatusBadge status={activeProduct.status} />
-                    <span className="font-mono text-xs uppercase tracking-wider text-[#2e2f2d]/60">
-                      {activeProduct.subtitle}
-                    </span>
-                  </div>
-
                   <div className="flex items-center gap-4">
                     <div className="flex h-12 w-12 items-center justify-center bg-[#2e2f2d] text-white">
                       <ProductIcon name={activeProduct.icon} className="h-6 w-6" />
@@ -199,7 +189,6 @@ export function ProductShowcase() {
                   <div className="h-full min-h-[380px] border border-dashed border-[#2e2f2d]/30 bg-[#eeeee8] p-8 sm:p-12 flex flex-col justify-between relative overflow-hidden">
                     <div className="flex items-center justify-between border-b border-[#2e2f2d]/10 pb-4">
                       <span className="font-mono text-xs text-[#2e2f2d]/50">MODUL DALAM TAHAP PENGEMBANGAN</span>
-                      <StatusBadge status="coming-soon" />
                     </div>
 
                     <div className="my-auto text-center py-8">
@@ -245,7 +234,7 @@ export function ProductShowcase() {
                     <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between bg-[#fbfbf9]">
                       <div className="flex items-center justify-between border-b border-[#deded6] pb-4">
                         <div>
-                          <p className="font-mono text-[10px] uppercase text-[#2e2f2d]/50">Dashboard Interface</p>
+                          <p className="font-display text-[11px] font-bold uppercase tracking-wider text-[#2e2f2d]/50 mb-1">Dashboard Interface</p>
                           <h4 className="font-display text-xl font-bold text-[#2e2f2d] uppercase">
                             {activeProduct.name} Console
                           </h4>

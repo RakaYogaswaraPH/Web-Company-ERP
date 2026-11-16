@@ -40,7 +40,7 @@ export function WhyUs() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left Title & Statement */}
           <div className="lg:col-span-5">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#2e2f2d]/60 block mb-2">
+            <span className="font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-[#2e2f2d]/60 block mb-2">
               Karakteristik Sistem
             </span>
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-tight text-[#2e2f2d] leading-[1.1]">
@@ -52,7 +52,7 @@ export function WhyUs() {
             </p>
 
             <div className="mt-8 border border-[#deded6] bg-white p-6">
-              <span className="font-mono text-xs text-[#2e2f2d]/50 block mb-1">KOMITMEN KUALITAS</span>
+              <span className="font-display text-[11px] font-bold uppercase tracking-wider text-[#2e2f2d]/50 block mb-1">KOMITMEN KUALITAS</span>
               <p className="font-display text-sm font-bold uppercase text-[#2e2f2d]">
                 Dukungan Purna Jual & Pelatihan Terjadwal
               </p>
