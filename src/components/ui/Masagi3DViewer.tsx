@@ -74,7 +74,7 @@ export function Masagi3DViewer() {
     scene.add(keyLight);
 
     // Soft warm fill light from bottom-left
-    const fillLight = new THREE.DirectionalLight(0xff7766, 0.9);
+    const fillLight = new THREE.DirectionalLight(0xf58a7a, 0.85);
     fillLight.position.set(-16, -12, 12);
     scene.add(fillLight);
 
@@ -86,12 +86,12 @@ export function Masagi3DViewer() {
     // 5. Build 3D Mesh from authentic vector contours
     const group = new THREE.Group();
 
-    // Premium Glossy Red Physical Material with rich clearcoat shine
+    // Premium Glossy Physical Material (#d84939) with rich clearcoat shine
     const material = new THREE.MeshPhysicalMaterial({
-      color: 0xee3322,
-      emissive: 0x240402,
-      roughness: 0.18,
-      metalness: 0.05,
+      color: 0xd84939,
+      emissive: 0x1a0705,
+      roughness: 0.16,
+      metalness: 0.06,
       clearcoat: 0.95,
       clearcoatRoughness: 0.08,
       reflectivity: 0.95,
