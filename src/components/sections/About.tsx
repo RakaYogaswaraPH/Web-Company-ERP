@@ -1,33 +1,30 @@
+"use client";
+
 import React from "react";
-import Image from "next/image";
+import dynamic from "next/dynamic";
 import { Container } from "@/components/ui/Container";
-import { siteConfig } from "@/config/site";
+
+// Dynamically import 3D Viewer on client side without SSR
+const Masagi3DViewer = dynamic(
+  () => import("@/components/ui/Masagi3DViewer").then((mod) => mod.Masagi3DViewer),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="w-full h-[380px] sm:h-[450px] lg:h-[480px] flex items-center justify-center">
+        <div className="h-10 w-10 border-2 border-[#2e2f2d]/20 border-t-accent-500 rounded-full animate-spin" />
+      </div>
+    ),
+  }
+);
 
 export function About() {
   return (
-    <section id="about" className="border-b border-[#deded6] bg-[#eeeee8] py-16 lg:py-24">
+    <section id="about" className="border-b border-[#deded6] bg-[#f6f6f2] py-16 lg:py-24 overflow-hidden">
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Left: Team Visual in Editorial Frame */}
-          <div className="lg:col-span-6">
-            <div className="border border-[#deded6] bg-white p-2 sm:p-3 shadow-sm">
-              <div
-                className="relative aspect-[16/10] w-full overflow-hidden bg-neutral-100"
-                style={{ position: "relative" }}
-              >
-                <Image
-                  src="/assets/brands/Teams.webp"
-                  alt="Tim Engineering Jamparing Masagi"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover"
-                />
-              </div>
-              <div className="mt-3 flex items-center justify-between px-2 text-[11px] font-mono text-[#2e2f2d]/60">
-                <span>DOKUMENTASI INTERNAL</span>
-                <span>ENGINEERING & PRODUCT DIVISION</span>
-              </div>
-            </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          {/* Left: Interactive 3D Masagi Emblem (Clean, Frameless, Pure 3D Canvas) */}
+          <div className="lg:col-span-6 flex items-center justify-center">
+            <Masagi3DViewer />
           </div>
 
           {/* Right: Narrative & Philosophy */}
