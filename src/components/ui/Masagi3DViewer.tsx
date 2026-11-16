@@ -3,33 +3,36 @@
 import React, { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 
-// Vector contour coordinates extracted from authentic Masagi emblem
-const MASAGI_CONTOURS: [number, number][][] = [
+// Authentic vector contour coordinates extracted directly from official 2D Masagi emblem
+const MASAGI_AUTHENTIC_CONTOURS: [number, number][][] = [
+  // Component 1: Main Masagi loop & wave
   [
-    [0.8, 8.4], [1.6, 8.32], [1.84, 8.12], [1.92, 7.96], [1.92, 7.56],
-    [1.72, 7.0], [1.12, 5.88], [0.72, 5.52], [0.16, 5.32], [-0.88, 5.16],
-    [-1.36, 4.92], [-1.68, 4.6], [-2.52, 2.76], [-4.8, -2.92], [-5.12, -3.88],
-    [-5.12, -4.2], [-5.04, -4.36], [-4.72, -4.56], [-3.76, -4.52], [-2.4, -4.2],
-    [-0.8, -3.68], [-0.64, -3.52], [-0.64, -3.28], [-0.88, -2.4], [-0.92, -1.2],
-    [-0.8, -0.4], [-0.56, 0.32], [-0.2, 0.96], [0.64, 1.76], [1.2, 2.08],
-    [2.16, 2.32], [3.12, 2.28], [4.0, 2.04], [5.36, 1.28], [6.4, 0.32],
-    [7.12, -0.72], [7.48, -1.68], [7.48, -2.64], [7.12, -3.52], [6.72, -3.84],
-    [6.4, -3.76], [5.4, -2.4], [4.6, -1.64], [3.8, -1.08], [2.68, -0.64],
-    [2.2, -0.56], [1.48, -0.6], [1.16, -0.72], [0.8, -1.08], [0.72, -1.32],
-    [0.76, -1.88], [1.2, -2.48], [1.68, -2.72], [2.48, -2.92], [2.6, -3.16],
-    [2.6, -3.48], [2.48, -4.04], [2.2, -4.68], [1.8, -5.24], [1.32, -5.64],
-    [0.6, -5.92], [-0.52, -6.2], [-5.4, -7.2], [-7.24, -7.52], [-7.64, -7.52],
-    [-7.88, -7.44], [-8.04, -7.28], [-8.16, -6.96], [-8.16, -6.4], [-8.04, -6.0],
-    [-6.76, -3.44], [-2.48, 6.32], [-2.0, 7.04], [-1.6, 7.44], [-1.04, 7.84],
-    [0.0, 8.28], [0.8, 8.4],
+    [0.971, 8.879], [1.676, 8.857], [2.118, 8.614], [2.206, 8.482], [2.25, 8.085],
+    [2.029, 7.379], [1.39, 6.143], [1.103, 5.835], [0.662, 5.57], [-0.75, 5.305],
+    [-1.147, 5.173], [-1.544, 4.908], [-1.897, 4.423], [-3.331, 1.07], [-5.515, -4.401],
+    [-5.625, -4.886], [-5.559, -5.327], [-5.338, -5.526], [-5.029, -5.592], [-4.103, -5.526],
+    [-2.118, -5.04], [-0.75, -4.555], [-0.596, -4.246], [-0.86, -3.232], [-0.926, -1.996],
+    [-0.772, -0.893], [-0.529, -0.143], [-0.199, 0.474], [0.176, 0.938], [0.86, 1.511],
+    [1.566, 1.886], [2.581, 2.107], [3.684, 2.04], [4.522, 1.798], [5.316, 1.423],
+    [6.507, 0.585], [7.39, -0.32], [8.029, -1.29], [8.426, -2.349], [8.449, -3.32],
+    [8.118, -4.246], [7.765, -4.688], [7.544, -4.776], [7.412, -4.754], [7.125, -4.533],
+    [6.574, -3.695], [6.088, -3.121], [5.493, -2.526], [4.654, -1.886], [4.037, -1.533],
+    [3.419, -1.29], [2.581, -1.114], [1.743, -1.158], [1.257, -1.379], [0.993, -1.688],
+    [0.882, -1.996], [0.971, -2.658], [1.191, -3.011], [1.544, -3.32], [1.985, -3.518],
+    [2.868, -3.761], [3.0, -4.114], [2.956, -4.599], [2.713, -5.349], [2.382, -5.967],
+    [1.743, -6.651], [1.257, -6.915], [0.419, -7.18], [-3.904, -8.107], [-7.699, -8.835],
+    [-8.36, -8.879], [-8.713, -8.768], [-8.846, -8.636], [-9.0, -8.195], [-9.0, -7.665],
+    [-8.868, -7.18], [-7.831, -5.151], [-6.882, -3.077], [-4.699, 2.04], [-2.581, 6.717],
+    [-2.096, 7.423], [-1.125, 8.217], [-0.066, 8.702], [0.596, 8.857], [0.949, 8.857]
   ],
+  // Component 2: Top-right crescent
   [
-    [4.24, 6.24], [4.48, 6.16], [4.8, 5.88], [5.8, 4.8], [6.4, 4.0],
-    [7.04, 2.96], [7.6, 1.68], [7.92, 0.56], [8.0, -0.16], [7.84, -0.64],
-    [7.6, -0.76], [7.28, -0.64], [6.36, 1.12], [5.44, 2.16], [4.64, 2.8],
-    [3.6, 3.36], [3.36, 3.56], [3.2, 3.88], [3.24, 4.36], [4.0, 6.04],
-    [4.24, 6.24],
-  ],
+    [4.831, 6.474], [5.051, 6.408], [5.338, 6.165], [6.529, 4.908], [7.235, 3.982],
+    [7.809, 3.055], [8.471, 1.643], [8.89, 0.32], [9.0, -0.298], [9.0, -0.783],
+    [8.801, -1.224], [8.449, -1.312], [8.184, -1.136], [7.522, 0.232], [7.169, 0.805],
+    [6.309, 1.798], [5.426, 2.526], [4.059, 3.32], [3.772, 3.585], [3.662, 3.938],
+    [3.75, 4.511], [4.61, 6.32], [4.831, 6.474]
+  ]
 ];
 
 export function Masagi3DViewer() {
@@ -44,12 +47,12 @@ export function Masagi3DViewer() {
     const scene = new THREE.Scene();
 
     // 2. Camera Setup
-    const width = container.clientWidth || 400;
+    const width = container.clientWidth || 420;
     const height = container.clientHeight || 450;
-    const camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 1000);
-    camera.position.set(0, 0, 32);
+    const camera = new THREE.PerspectiveCamera(38, width / height, 0.1, 1000);
+    camera.position.set(0, 0, 31);
 
-    // 3. Renderer Setup (Transparent canvas, high anti-aliasing)
+    // 3. Renderer Setup (Transparent background, high anti-aliasing)
     const renderer = new THREE.WebGLRenderer({
       alpha: true,
       antialias: true,
@@ -61,33 +64,36 @@ export function Masagi3DViewer() {
     renderer.toneMappingExposure = 1.15;
     container.appendChild(renderer.domElement);
 
-    // 4. Lighting Rig
-    const ambientLight = new THREE.AmbientLight(0xfff6f2, 1.3);
+    // 4. Studio Lighting Rig
+    const ambientLight = new THREE.AmbientLight(0xfff6f2, 1.4);
     scene.add(ambientLight);
 
-    const dirLight1 = new THREE.DirectionalLight(0xffffff, 2.5);
-    dirLight1.position.set(12, 18, 20);
-    scene.add(dirLight1);
+    // Key Light from top-right front creates clean highlights
+    const keyLight = new THREE.DirectionalLight(0xffffff, 2.6);
+    keyLight.position.set(16, 22, 24);
+    scene.add(keyLight);
 
-    const dirLight2 = new THREE.DirectionalLight(0xffb8b8, 1.2);
-    dirLight2.position.set(-15, -10, 10);
-    scene.add(dirLight2);
+    // Soft warm fill light from bottom-left
+    const fillLight = new THREE.DirectionalLight(0xff7766, 0.9);
+    fillLight.position.set(-16, -12, 12);
+    scene.add(fillLight);
 
-    const rimLight = new THREE.PointLight(0xffffff, 2.0, 50);
-    rimLight.position.set(0, 15, -12);
+    // Rim point light to highlight curved 3D edges
+    const rimLight = new THREE.PointLight(0xffffff, 1.8, 60);
+    rimLight.position.set(0, 16, -14);
     scene.add(rimLight);
 
-    // 5. Build 3D Mesh from Masagi vector contours
+    // 5. Build 3D Mesh from authentic vector contours
     const group = new THREE.Group();
 
-    // Premium Red Physical Material with realistic specular reflections & bevel shine
+    // Premium Glossy Red Physical Material with rich clearcoat shine
     const material = new THREE.MeshPhysicalMaterial({
-      color: 0xdb242d,
-      emissive: 0x220204,
-      roughness: 0.22,
-      metalness: 0.08,
-      clearcoat: 0.9,
-      clearcoatRoughness: 0.1,
+      color: 0xee3322,
+      emissive: 0x240402,
+      roughness: 0.18,
+      metalness: 0.05,
+      clearcoat: 0.95,
+      clearcoatRoughness: 0.08,
       reflectivity: 0.95,
       specularIntensity: 1.0,
       specularColor: new THREE.Color(0xffffff),
@@ -103,7 +109,7 @@ export function Masagi3DViewer() {
       bevelOffset: 0,
     };
 
-    MASAGI_CONTOURS.forEach((pts) => {
+    MASAGI_AUTHENTIC_CONTOURS.forEach((pts) => {
       const shape = new THREE.Shape();
       shape.moveTo(pts[0][0], pts[0][1]);
       for (let i = 1; i < pts.length; i++) {
@@ -112,18 +118,17 @@ export function Masagi3DViewer() {
       shape.closePath();
 
       const geometry = new THREE.ExtrudeGeometry(shape, extrudeSettings);
-      geometry.center();
       const mesh = new THREE.Mesh(geometry, material);
       group.add(mesh);
     });
 
-    // Default angle matching user's reference image
-    group.rotation.x = 0.18;
-    group.rotation.y = -0.32;
-    group.rotation.z = -0.05;
+    // Exact perspective angle matching user's official 3D reference image
+    group.rotation.x = -0.12;
+    group.rotation.y = 0.38;
+    group.rotation.z = -0.06;
     scene.add(group);
 
-    // 6. Smooth Mouse/Touch Drag Controls with Inertia
+    // 6. Smooth Mouse & Touch Drag Controls with Natural Inertia
     let pointerDown = false;
     let prevX = 0;
     let prevY = 0;
@@ -166,16 +171,16 @@ export function Masagi3DViewer() {
     window.addEventListener("pointermove", onPointerMove);
     window.addEventListener("pointerup", onPointerUp);
 
-    // 7. Render Loop with Smooth Damping & Idle Floating
+    // 7. Render Loop: Inertia Damping & Gentle Idle Floating
     let animationFrameId: number;
-    let clock = new THREE.Clock();
+    const clock = new THREE.Clock();
 
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
       const elapsedTime = clock.getElapsedTime();
 
       if (!pointerDown) {
-        // Apply smooth friction/inertia
+        // Apply friction
         group.rotation.y += velX;
         group.rotation.x += velY;
         velX *= 0.94;
@@ -183,9 +188,9 @@ export function Masagi3DViewer() {
 
         autoRotateTimer += 0.016;
         if (autoRotateTimer > 1.2 && Math.abs(velX) < 0.001 && Math.abs(velY) < 0.001) {
-          // Gentle idle floating & rotation
-          group.rotation.y += 0.006;
-          group.position.y = Math.sin(elapsedTime * 1.5) * 0.45;
+          // Gentle idle floating & subtle slow rotation
+          group.rotation.y += 0.005;
+          group.position.y = Math.sin(elapsedTime * 1.6) * 0.45;
           group.position.x = Math.cos(elapsedTime * 1.2) * 0.25;
         }
       }
@@ -195,7 +200,7 @@ export function Masagi3DViewer() {
 
     animate();
 
-    // 8. Responsive Resize Handler
+    // 8. Responsive Resize Observer
     const resizeObserver = new ResizeObserver((entries) => {
       for (const entry of entries) {
         const newW = entry.contentRect.width;
@@ -209,7 +214,7 @@ export function Masagi3DViewer() {
     });
     resizeObserver.observe(container);
 
-    // 9. Cleanup
+    // 9. Cleanup on Unmount
     return () => {
       cancelAnimationFrame(animationFrameId);
       resizeObserver.disconnect();
@@ -235,7 +240,7 @@ export function Masagi3DViewer() {
       className={`relative w-full h-[380px] sm:h-[450px] lg:h-[480px] select-none flex items-center justify-center ${
         isDragging ? "cursor-grabbing" : "cursor-grab"
       }`}
-      title="Klik dan geser untuk memutar logo Masagi 3D"
+      title="Klik dan seret untuk memutar logo Masagi 3D"
     />
   );
 }
