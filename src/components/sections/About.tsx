@@ -47,17 +47,6 @@ export function About() {
                 kami mendesain sistem yang tidak berbelit-belit, fokus pada kemudahan pakai sehari-hari,
                 serta menghasilkan data analitik yang valid untuk keputusan pimpinan.
               </p>
-
-              <div className="mt-8 grid grid-cols-2 gap-4 border-t border-[#deded6] pt-6 font-display">
-                <div className="border-l-2 border-[#2e2f2d] pl-4">
-                  <span className="text-2xl sm:text-3xl font-bold text-[#2e2f2d]">5 Modul</span>
-                  <p className="text-xs text-[#2e2f2d]/60 uppercase mt-1 font-mono">Portofolio Terintegrasi</p>
-                </div>
-                <div className="border-l-2 border-accent-500 pl-4">
-                  <span className="text-2xl sm:text-3xl font-bold text-[#2e2f2d]">100%</span>
-                  <p className="text-xs text-[#2e2f2d]/60 uppercase mt-1 font-mono">Kedaulatan Data Lokal</p>
-                </div>
-              </div>
             </div>
           </div>
         </div>

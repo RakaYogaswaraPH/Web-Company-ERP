@@ -1,13 +1,26 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Container } from "@/components/ui/Container";
 import { siteConfig } from "@/config/site";
 import { ExternalLink } from "@/components/ui/ExternalLink";
-import { ArrowUpRight, MessageSquare, Mail, Phone, CheckCircle2 } from "lucide-react";
+import { ArrowUpRight, MessageSquare, Mail, Phone, CheckCircle2, ChevronDown, Check } from "lucide-react";
+import { cn } from "@/lib/utils";
+
+const PRODUCT_OPTIONS = [
+  { value: "Semua Produk (Full Suite)", label: "Semua Modul (Full Suite ERP)", tag: "5 Modul Terpadu" },
+  { value: "DIGIARS (Digital Arsip)", label: "DIGIARS — Digital Arsip Perusahaan", tag: "Digitalisasi Dokumen" },
+  { value: "WMS (Water Monitoring System)", label: "WMS — Water Monitoring System IoT", tag: "Telemetri IoT Air" },
+  { value: "PESANDONG (Kasir POS)", label: "PESANDONG — Kasir POS & Inventori", tag: "Point of Sale" },
+  { value: "KEUANGAN (Iuran & SPP)", label: "KEUANGAN — Manajemen Iuran, SPP & Tagihan", tag: "Money Collection" },
+  { value: "HRM (Absensi, Task & Surat)", label: "HRM — Absensi, Task & Surat Menyurat", tag: "Manajemen SDM" },
+];
 
 export function CTA() {
   const [submitted, setSubmitted] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
   const [formData, setFormData] = useState({
     name: "",
     company: "",
@@ -19,14 +32,29 @@ export function CTA() {
     website_hp: "",
   });
 
+  // Close custom dropdown when clicking outside or pressing Escape
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setDropdownOpen(false);
+      }
+    };
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setDropdownOpen(false);
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // If honeypot filled, silently drop
-    if (formData.website_hp) {
-      return;
-    }
+    if (formData.website_hp) return;
 
-    // Static site submission: direct to mailto or confirm state
     const subject = encodeURIComponent(`Permintaan Demo ERP - ${formData.company || formData.name}`);
     const body = encodeURIComponent(
       `Nama: ${formData.name}\nPerusahaan: ${formData.company}\nEmail: ${formData.email}\nTelepon: ${formData.phone}\nModul Diminati: ${formData.selectedProduct}\n\nPesan:\n${formData.message}`
@@ -35,6 +63,8 @@ export function CTA() {
     window.location.href = `mailto:${siteConfig.contact.email}?subject=${subject}&body=${body}`;
     setSubmitted(true);
   };
+
+  const selectedOption = PRODUCT_OPTIONS.find((opt) => opt.value === formData.selectedProduct) || PRODUCT_OPTIONS[0];
 
   return (
     <section id="contact" className="border-b border-[#deded6] bg-[#f6f6f2] py-16 lg:py-24">
@@ -58,42 +88,48 @@ export function CTA() {
               {/* Direct Channels */}
               <div className="mt-8 flex flex-col gap-4">
                 {/* WhatsApp Link */}
-                <ExternalLink
-                  href={`https://wa.me/${siteConfig.contact.whatsapp}?text=${encodeURIComponent(
-                    "Halo Tim Jamparing Masagi, saya ingin mendiskusikan implementasi aplikasi ERP untuk perusahaan kami."
-                  )}`}
-                  className="flex items-center gap-4 border border-[#deded6] bg-white p-4 transition-all hover:border-[#2e2f2d]"
+                <a
+                  href={`https://wa.me/${siteConfig.contact.whatsapp}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between border border-[#deded6] bg-white p-4 transition-all hover:border-[#2e2f2d] hover:shadow-sm group"
                 >
-                  <div className="flex h-10 w-10 items-center justify-center bg-[#2e2f2d] text-white shrink-0">
-                    <MessageSquare className="h-5 w-5" />
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center bg-[#2e2f2d] text-white">
+                      <MessageSquare className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <p className="font-display text-xs font-bold uppercase tracking-wider text-[#2e2f2d]">
+                        WhatsApp Bisnis
+                      </p>
+                      <p className="font-mono text-xs text-[#2e2f2d]/60 mt-0.5">
+                        +{siteConfig.contact.whatsapp}
+                      </p>
+                    </div>
                   </div>
-                  <div className="flex-1">
-                    <p className="font-display text-xs font-bold uppercase text-[#2e2f2d]">
-                      WhatsApp Bisnis
-                    </p>
-                    <p className="text-xs text-[#2e2f2d]/60">{siteConfig.contact.phone}</p>
-                  </div>
-                  <ArrowUpRight className="h-4 w-4 text-[#2e2f2d]/50" />
-                </ExternalLink>
+                  <ArrowUpRight className="h-4 w-4 text-[#2e2f2d]/40 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-[#2e2f2d]" />
+                </a>
 
                 {/* Email Link */}
-                <ExternalLink
-                  href={`mailto:${siteConfig.contact.email}?subject=${encodeURIComponent(
-                    "Pertanyaan Implementasi ERP Jamparing Masagi"
-                  )}`}
-                  className="flex items-center gap-4 border border-[#deded6] bg-white p-4 transition-all hover:border-[#2e2f2d]"
+                <a
+                  href={`mailto:${siteConfig.contact.email}`}
+                  className="flex items-center justify-between border border-[#deded6] bg-white p-4 transition-all hover:border-[#2e2f2d] hover:shadow-sm group"
                 >
-                  <div className="flex h-10 w-10 items-center justify-center bg-[#2e2f2d] text-white shrink-0">
-                    <Mail className="h-5 w-5" />
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center bg-[#2e2f2d] text-white">
+                      <Mail className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <p className="font-display text-xs font-bold uppercase tracking-wider text-[#2e2f2d]">
+                        Email Resmi
+                      </p>
+                      <p className="font-mono text-xs text-[#2e2f2d]/60 mt-0.5">
+                        {siteConfig.contact.email}
+                      </p>
+                    </div>
                   </div>
-                  <div className="flex-1">
-                    <p className="font-display text-xs font-bold uppercase text-[#2e2f2d]">
-                      Email Resmi
-                    </p>
-                    <p className="text-xs text-[#2e2f2d]/60">{siteConfig.contact.email}</p>
-                  </div>
-                  <ArrowUpRight className="h-4 w-4 text-[#2e2f2d]/50" />
-                </ExternalLink>
+                  <ArrowUpRight className="h-4 w-4 text-[#2e2f2d]/40 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-[#2e2f2d]" />
+                </a>
               </div>
             </div>
 
@@ -106,10 +142,10 @@ export function CTA() {
             </div>
           </div>
 
-          {/* Right Column: Request Demo Form */}
+          {/* Right Column: Request Demo Form (Clean #eff1ea Background, No Outer Border) */}
           <div className="lg:col-span-7">
-            <div className="border border-[#2e2f2d] bg-white p-6 sm:p-10 shadow-sm">
-              <div className="flex items-center justify-between border-b border-[#deded6] pb-4 mb-6">
+            <div className="bg-[#eff1ea] p-6 sm:p-10 shadow-sm">
+              <div className="flex items-center justify-between border-b border-[#2e2f2d]/15 pb-4 mb-6">
                 <div>
                   <h3 className="font-display text-xl sm:text-2xl font-bold uppercase text-[#2e2f2d]">
                     Formulir Permintaan Uji Coba
@@ -118,13 +154,13 @@ export function CTA() {
                     Pilih aplikasi yang ingin Anda uji coba atau jadwalkan presentasi
                   </p>
                 </div>
-                <span className="font-mono text-xs font-bold text-accent-500 uppercase">
+                <span className="font-mono text-xs font-bold text-accent-500 uppercase px-2 py-0.5 bg-accent-500/10">
                   GRATIS
                 </span>
               </div>
 
               {submitted ? (
-                <div className="p-8 text-center bg-[#eeeee8] border border-[#deded6]">
+                <div className="p-8 text-center bg-white border border-[#deded6]">
                   <CheckCircle2 className="h-12 w-12 text-[#2e2f2d] mx-auto mb-3" />
                   <h4 className="font-display text-lg font-bold uppercase text-[#2e2f2d]">
                     Permintaan Telah Diteruskan
@@ -167,7 +203,7 @@ export function CTA() {
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="Contoh: Rian Anggoro"
-                        className="w-full border border-[#deded6] bg-[#fbfbf9] px-3.5 py-2.5 text-xs sm:text-sm text-[#2e2f2d] focus:border-[#2e2f2d] focus:outline-none"
+                        className="w-full border border-[#dcdfd5] bg-white px-3.5 py-2.5 text-xs sm:text-sm text-[#2e2f2d] focus:border-[#2e2f2d] focus:outline-none transition-colors"
                       />
                     </div>
 
@@ -181,7 +217,7 @@ export function CTA() {
                         value={formData.company}
                         onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                         placeholder="Contoh: PT Sumber Tirta Abadi"
-                        className="w-full border border-[#deded6] bg-[#fbfbf9] px-3.5 py-2.5 text-xs sm:text-sm text-[#2e2f2d] focus:border-[#2e2f2d] focus:outline-none"
+                        className="w-full border border-[#dcdfd5] bg-white px-3.5 py-2.5 text-xs sm:text-sm text-[#2e2f2d] focus:border-[#2e2f2d] focus:outline-none transition-colors"
                       />
                     </div>
                   </div>
@@ -197,7 +233,7 @@ export function CTA() {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="nama@perusahaan.com"
-                        className="w-full border border-[#deded6] bg-[#fbfbf9] px-3.5 py-2.5 text-xs sm:text-sm text-[#2e2f2d] focus:border-[#2e2f2d] focus:outline-none"
+                        className="w-full border border-[#dcdfd5] bg-white px-3.5 py-2.5 text-xs sm:text-sm text-[#2e2f2d] focus:border-[#2e2f2d] focus:outline-none transition-colors"
                       />
                     </div>
 
@@ -211,27 +247,88 @@ export function CTA() {
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         placeholder="0812xxxxxxx"
-                        className="w-full border border-[#deded6] bg-[#fbfbf9] px-3.5 py-2.5 text-xs sm:text-sm text-[#2e2f2d] focus:border-[#2e2f2d] focus:outline-none"
+                        className="w-full border border-[#dcdfd5] bg-white px-3.5 py-2.5 text-xs sm:text-sm text-[#2e2f2d] focus:border-[#2e2f2d] focus:outline-none transition-colors"
                       />
                     </div>
                   </div>
 
-                  <div>
+                  {/* Custom Styled Dropdown Component */}
+                  <div className="relative" ref={dropdownRef}>
                     <label className="block font-display text-xs font-bold uppercase tracking-wider text-[#2e2f2d] mb-1">
                       Modul Aplikasi yang Diminati *
                     </label>
-                    <select
-                      value={formData.selectedProduct}
-                      onChange={(e) => setFormData({ ...formData, selectedProduct: e.target.value })}
-                      className="w-full border border-[#deded6] bg-[#fbfbf9] px-3.5 py-2.5 text-xs sm:text-sm text-[#2e2f2d] focus:border-[#2e2f2d] focus:outline-none"
+                    <button
+                      type="button"
+                      onClick={() => setDropdownOpen(!dropdownOpen)}
+                      className={cn(
+                        "w-full flex items-center justify-between border bg-white px-3.5 py-2.5 text-xs sm:text-sm text-[#2e2f2d] text-left transition-all cursor-pointer focus:outline-none",
+                        dropdownOpen ? "border-[#2e2f2d] ring-1 ring-[#2e2f2d]" : "border-[#dcdfd5] hover:border-[#2e2f2d]"
+                      )}
+                      aria-haspopup="listbox"
+                      aria-expanded={dropdownOpen}
                     >
-                      <option value="Semua Produk (Full Suite)">Semua Modul (Full Suite ERP)</option>
-                      <option value="DIGIARS (Digital Arsip)">DIGIARS — Digital Arsip Perusahaan</option>
-                      <option value="WMS (Water Monitoring System)">WMS — Water Monitoring System IoT</option>
-                      <option value="PESANDONG (Kasir POS)">PESANDONG — Kasir POS & Inventori Ritel</option>
-                      <option value="KEUANGAN (Iuran & SPP)">KEUANGAN — Manajemen Iuran, SPP & Tagihan</option>
-                      <option value="HRM (Absensi, Task & Surat)">HRM — Absensi, Task Management & Surat Menyurat</option>
-                    </select>
+                      <div className="flex items-center gap-2 truncate">
+                        <span className="font-semibold text-[#2e2f2d] truncate">
+                          {selectedOption.label}
+                        </span>
+                        <span className="hidden sm:inline font-mono text-[10px] text-[#2e2f2d]/50 bg-[#eff1ea] px-1.5 py-0.5 shrink-0">
+                          {selectedOption.tag}
+                        </span>
+                      </div>
+                      <ChevronDown
+                        className={cn(
+                          "h-4 w-4 text-[#2e2f2d]/70 transition-transform duration-200 shrink-0 ml-2",
+                          dropdownOpen && "rotate-180 text-[#2e2f2d]"
+                        )}
+                      />
+                    </button>
+
+                    {/* Popover Menu with custom styling */}
+                    {dropdownOpen && (
+                      <div className="absolute left-0 right-0 top-full mt-1.5 z-40 border border-[#2e2f2d]/20 bg-white shadow-xl overflow-hidden animate-in fade-in-0 zoom-in-95 duration-100">
+                        <div className="max-h-60 overflow-y-auto divide-y divide-[#deded6]/60">
+                          {PRODUCT_OPTIONS.map((opt) => {
+                            const isSelected = formData.selectedProduct === opt.value;
+                            return (
+                              <button
+                                key={opt.value}
+                                type="button"
+                                onClick={() => {
+                                  setFormData({ ...formData, selectedProduct: opt.value });
+                                  setDropdownOpen(false);
+                                }}
+                                className={cn(
+                                  "w-full flex items-center justify-between px-4 py-3 text-left transition-colors cursor-pointer group",
+                                  isSelected
+                                    ? "bg-[#2e2f2d] text-white"
+                                    : "bg-white text-[#2e2f2d] hover:bg-[#f6f6f2]"
+                                )}
+                              >
+                                <div className="pr-2">
+                                  <p
+                                    className={cn(
+                                      "text-xs sm:text-sm font-semibold",
+                                      isSelected ? "text-white" : "text-[#2e2f2d] group-hover:text-accent-500"
+                                    )}
+                                  >
+                                    {opt.label}
+                                  </p>
+                                  <p
+                                    className={cn(
+                                      "text-[10px] font-mono mt-0.5",
+                                      isSelected ? "text-white/70" : "text-[#2e2f2d]/60"
+                                    )}
+                                  >
+                                    {opt.tag}
+                                  </p>
+                                </div>
+                                {isSelected && <Check className="h-4 w-4 text-accent-500 shrink-0 ml-2" />}
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
                   </div>
 
                   <div>
@@ -243,7 +340,7 @@ export function CTA() {
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Ceritakan estimasi jumlah pengguna atau kendala operasional yang ingin diselesaikan..."
-                      className="w-full border border-[#deded6] bg-[#fbfbf9] px-3.5 py-2.5 text-xs sm:text-sm text-[#2e2f2d] focus:border-[#2e2f2d] focus:outline-none resize-none"
+                      className="w-full border border-[#dcdfd5] bg-white px-3.5 py-2.5 text-xs sm:text-sm text-[#2e2f2d] focus:border-[#2e2f2d] focus:outline-none resize-none transition-colors"
                     />
                   </div>
 
