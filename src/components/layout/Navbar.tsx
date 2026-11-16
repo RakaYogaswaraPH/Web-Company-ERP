@@ -21,7 +21,10 @@ export function Navbar() {
               href="/"
               className="flex items-center gap-3 transition-opacity hover:opacity-90 focus:outline-none"
             >
-              <div className="relative h-9 w-32 sm:w-36">
+              <div
+                className="relative h-9 w-32 sm:w-36"
+                style={{ position: "relative" }}
+              >
                 <Image
                   src="/assets/logo/logo.webp"
                   alt="Logo Jamparing Masagi"

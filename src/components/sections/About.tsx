@@ -11,7 +11,10 @@ export function About() {
           {/* Left: Team Visual in Editorial Frame */}
           <div className="lg:col-span-6">
             <div className="border border-[#deded6] bg-white p-2 sm:p-3 shadow-sm">
-              <div className="relative aspect-[16/10] w-full overflow-hidden bg-neutral-100">
+              <div
+                className="relative aspect-[16/10] w-full overflow-hidden bg-neutral-100"
+                style={{ position: "relative" }}
+              >
                 <Image
                   src="/assets/brands/Teams.webp"
                   alt="Tim Engineering Jamparing Masagi"

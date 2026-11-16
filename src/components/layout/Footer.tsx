@@ -16,7 +16,10 @@ export function Footer() {
           <div className="lg:col-span-5 flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3 mb-6">
-                <div className="relative h-10 w-36 brightness-0 invert">
+                <div
+                  className="relative h-10 w-36 brightness-0 invert"
+                  style={{ position: "relative" }}
+                >
                   <Image
                     src="/assets/logo/logo.webp"
                     alt="Logo Jamparing Masagi"
