@@ -34,11 +34,11 @@ export function About() {
                 Profil Perusahaan
               </span>
               <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-tight text-[#2e2f2d] leading-[1.1]">
-                Tentang Jamparing Masagi
+                Jamparing Masagi
               </h2>
 
-              <p className="mt-6 text-sm sm:text-base text-[#2e2f2d]/80 leading-relaxed font-body">
-                Jamparing Masagi adalah perusahaan penyedia layanan Teknologi Informasi dan Komunikasi (TIK) yang berbasis di Bandung dan Cimahi. Kami berfokus pada
+              <p className="mt-3 text-sm sm:text-base text-[#2e2f2d]/80 leading-relaxed font-body">
+                Perusahaan penyedia layanan Teknologi Informasi dan Komunikasi (TIK) yang berbasis di Bandung dan Cimahi. Kami berfokus pada
                 pembuatan solusi digital untuk sektor enterprise, sektor instansi perusahaan, dan sektor UMKM.
               </p>
 
