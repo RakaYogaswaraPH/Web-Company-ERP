@@ -138,7 +138,7 @@ export function CTA() {
             <div className="bg-[#f6f6f2] p-6 sm:p-10">
               <div className="flex items-center justify-between border-b border-[#2e2f2d]/15 pb-4 mb-6">
                 <div>
-                  <h3 className="font-display text-xl sm:text-2xl font-bold uppercase text-[#2e2f2d]">
+                  <h3 className="font-display text-xl sm:text-2xl font-semibold uppercase text-[#2e2f2d]">
                     Permintaan Uji Coba
                   </h3>
                   <p className="text-xs text-[#2e2f2d]/60 mt-1">
@@ -150,7 +150,7 @@ export function CTA() {
               {submitted ? (
                 <div className="p-8 text-center bg-white border border-[#deded6]">
                   <CheckCircle2 className="h-12 w-12 text-[#2e2f2d] mx-auto mb-3" />
-                  <h4 className="font-display text-lg font-bold uppercase text-[#2e2f2d]">
+                  <h4 className="font-display text-lg font-semibold uppercase text-[#2e2f2d]">
                     Permintaan Telah Diteruskan
                   </h4>
                   <p className="text-xs sm:text-sm text-[#2e2f2d]/70 mt-2">
@@ -159,7 +159,7 @@ export function CTA() {
                   <button
                     type="button"
                     onClick={() => setSubmitted(false)}
-                    className="mt-6 inline-block text-xs font-display font-bold uppercase tracking-wider text-[#2e2f2d] underline"
+                    className="mt-6 inline-block text-xs font-display font-semibold uppercase tracking-wider text-[#2e2f2d] underline"
                   >
                     Kirim formulir lain
                   </button>
@@ -256,7 +256,7 @@ export function CTA() {
                       aria-expanded={dropdownOpen}
                     >
                       <div className="flex items-center gap-2 truncate">
-                        <span className="font-semibold text-[#2e2f2d] truncate">
+                        <span className="font-light text-[#2e2f2d] truncate">
                           {selectedOption.label}
                         </span>
                         <span className="hidden sm:inline font-mono text-[10px] text-[#2e2f2d]/50 bg-[#eeeee8] px-1.5 py-0.5 shrink-0">
@@ -295,7 +295,7 @@ export function CTA() {
                                 <div className="pr-2">
                                   <p
                                     className={cn(
-                                      "text-xs sm:text-sm font-semibold",
+                                      "text-xs sm:text-sm font-light",
                                       isSelected ? "text-white" : "text-[#2e2f2d] group-hover:text-accent-500"
                                     )}
                                   >
