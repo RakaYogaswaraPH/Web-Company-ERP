@@ -19,7 +19,7 @@ const Masagi3DViewer = dynamic(
 
 export function About() {
   return (
-    <section id="about" className="border-b border-[#deded6] bg-[#f6f6f2] py-16 lg:py-24 overflow-hidden">
+    <section id="about" className="border-b border-[#deded6] bg-[#fefeff] py-16 lg:py-24 overflow-hidden">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Left: Interactive 3D Masagi Emblem (Clean, Frameless, Pure 3D Canvas) */}
@@ -38,14 +38,13 @@ export function About() {
               </h2>
 
               <p className="mt-6 text-sm sm:text-base text-[#2e2f2d]/80 leading-relaxed font-body">
-                Jamparing Masagi adalah pengembang perangkat lunak berdedikasi yang berfokus pada
-                pembuatan solusi digital untuk sektor enterprise, instansi pengelola utilitas, dan UMKM berkembang.
+                Jamparing Masagi adalah perusahaan penyedia layanan Teknologi Informasi dan Komunikasi (TIK) yang berbasis di Bandung dan Cimahi. Kami berfokus pada
+                pembuatan solusi digital untuk sektor enterprise, sektor instansi perusahaan, dan sektor UMKM.
               </p>
 
               <p className="mt-4 text-sm sm:text-base text-[#2e2f2d]/80 leading-relaxed font-body">
-                Melalui portofolio 5 modul spesifik kami (DIGIARS, WMS, PESANDONG, KEUANGAN, dan HRM),
-                kami mendesain sistem yang tidak berbelit-belit, fokus pada kemudahan pakai sehari-hari,
-                serta menghasilkan data analitik yang valid untuk keputusan pimpinan.
+                Kami berupaya merancang dan membangun sistem dengan tujuan untuk fokus pada kemudahan pengguna,
+                serta menghasilkan data yang aktual guna memudahkan manajemen bisnis pengguna.
               </p>
             </div>
           </div>

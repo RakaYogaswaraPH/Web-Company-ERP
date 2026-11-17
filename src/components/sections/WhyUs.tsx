@@ -80,13 +80,6 @@ export function WhyUs() {
                     {adv.description}
                   </p>
                 </div>
-
-                <div className="mt-8 pt-3 border-t border-[#deded6]/60 flex items-center justify-between">
-                  <span className="font-mono text-[10px] tracking-wider uppercase text-[#2e2f2d]/40">
-                    Standar ERP Masagi
-                  </span>
-                  <span className="h-1.5 w-1.5 rounded-full bg-accent-500/40 group-hover:bg-accent-500 transition-colors" />
-                </div>
               </div>
             );
           })}
