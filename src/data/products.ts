@@ -58,7 +58,7 @@ export const products: Product[] = [
   {
     slug: "keuangan",
     name: "FINANCE SYSTEM",
-    subtitle: "Sistem Manajemen Keuangan",
+    subtitle: "Sistem Manajemen Kas",
     tagline: "Sistem perhitungan dan penagihan iuran bulanan, SPP, dan tagihan.",
     description:
       "Solusi untuk pengelolaan tagihan rutin (iuran lingkungan, SPP sekolah/kursus, sewa properti, atau tagihan berkala lainnya) dengan pembuatan invoice otomatis, pengingat pembayaran, dan rekap keuangan.",
