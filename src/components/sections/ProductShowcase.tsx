@@ -4,63 +4,84 @@ import React, { useState } from "react";
 import { Container } from "@/components/ui/Container";
 import { products } from "@/data/products";
 import { ProductIcon } from "@/components/ui/ProductIcon";
-import { ChevronLeft, ChevronRight, ArrowUpRight, CheckCircle2, ShieldCheck } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, ShieldCheck } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/lib/utils";
+
+// Wireframe Box Component for placeholder layout per design brief
+function WireframeBox({
+  className = "",
+  hasX = true,
+  hasPlay = false,
+}: {
+  className?: string;
+  hasX?: boolean;
+  hasPlay?: boolean;
+}) {
+  return (
+    <div
+      className={cn(
+        "relative bg-[#e5e7e1] border border-[#d6d8ce] overflow-hidden flex items-center justify-center",
+        className
+      )}
+    >
+      {hasX && (
+        <svg
+          className="absolute inset-0 w-full h-full text-[#b5b8ac]"
+          preserveAspectRatio="none"
+        >
+          <line
+            x1="0"
+            y1="0"
+            x2="100%"
+            y2="100%"
+            stroke="currentColor"
+            strokeWidth="1.2"
+          />
+          <line
+            x1="100%"
+            y1="0"
+            x2="0"
+            y2="100%"
+            stroke="currentColor"
+            strokeWidth="1.2"
+          />
+        </svg>
+      )}
+      {hasPlay && (
+        <div className="relative z-10 flex items-center justify-center">
+          <svg
+            className="w-6 h-6 text-[#2e2f2d]/45 ml-0.5"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.75"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <polygon points="6 3 20 12 6 21 6 3" />
+          </svg>
+        </div>
+      )}
+    </div>
+  );
+}
 
 export function ProductShowcase() {
   const [activeIndex, setActiveIndex] = useState(0);
   const activeProduct = products[activeIndex];
 
-  const handleNext = () => {
-    setActiveIndex((prev) => (prev + 1) % products.length);
-  };
-
-  const handlePrev = () => {
-    setActiveIndex((prev) => (prev - 1 + products.length) % products.length);
-  };
-
   return (
     <section id="portfolio" className="relative border-b border-[#deded6] bg-[#f6f6f2] py-16 lg:py-24">
       <Container>
-        {/* Editorial Header & Controls */}
-        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between border-b border-[#deded6] pb-8">
-          <div>
-            <span className="font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-[#2e2f2d]/60 block mb-2">
-              SOFTWARE ERP
-            </span>
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-tight text-[#2e2f2d]">
-              Solusi Kami
-            </h2>
-          </div>
-
-          {/* Thinking Room Style Navigation Controls */}
-          <div className="flex items-center gap-4">
-            <div className="font-mono text-lg font-bold text-[#2e2f2d]">
-              <span>{String(activeIndex + 1).padStart(2, "0")}</span>
-              <span className="text-[#2e2f2d]/30 mx-2">/</span>
-              <span className="text-[#2e2f2d]/50">{String(products.length).padStart(2, "0")}</span>
-            </div>
-
-            <div className="flex items-center border border-[#2e2f2d] bg-white">
-              <button
-                type="button"
-                onClick={handlePrev}
-                aria-label="Produk Sebelumnya"
-                className="flex h-12 w-12 items-center justify-center border-r border-[#2e2f2d] text-[#2e2f2d] transition-colors hover:bg-[#2e2f2d] hover:text-white focus:outline-none"
-              >
-                <ChevronLeft className="h-5 w-5" />
-              </button>
-              <button
-                type="button"
-                onClick={handleNext}
-                aria-label="Produk Selanjutnya"
-                className="flex h-12 w-12 items-center justify-center text-[#2e2f2d] transition-colors hover:bg-[#2e2f2d] hover:text-white focus:outline-none"
-              >
-                <ChevronRight className="h-5 w-5" />
-              </button>
-            </div>
-          </div>
+        {/* Editorial Section Header */}
+        <div className="border-b border-[#deded6] pb-8">
+          <span className="font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-[#2e2f2d]/60 block mb-2">
+            SOFTWARE ERP
+          </span>
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-tight text-[#2e2f2d]">
+            Solusi Kami
+          </h2>
         </div>
 
         {/* Tab Row for Direct Selection */}
@@ -136,7 +157,7 @@ export function ProductShowcase() {
                   {/* Feature Checklist */}
                   <div className="mt-8">
                     <p className="font-display text-xs font-bold uppercase tracking-wider text-[#2e2f2d] mb-3">
-                      Fitur Utama & Kapabilitas Sistem:
+                      Fitur Utama:
                     </p>
                     <ul className="space-y-2.5">
                       {activeProduct.features.map((feat, fIdx) => (
@@ -154,7 +175,7 @@ export function ProductShowcase() {
                   {activeProduct.highlight && (
                     <div className="text-xs text-[#2e2f2d]/70">
                       <span className="font-display font-bold uppercase text-[#2e2f2d] block">
-                        Keunggulan Kunci
+                        Menawarkan
                       </span>
                       {activeProduct.highlight}
                     </div>
@@ -182,104 +203,43 @@ export function ProductShowcase() {
                 </div>
               </div>
 
-              {/* Right Column: Editorial Product Mock / Frame */}
+              {/* Right Column: Editorial Wireframe Frame */}
               <div className="lg:col-span-6 flex flex-col">
-                {activeProduct.status === "coming-soon" ? (
-                  /* Coming soon teaser treatment strictly per design-system rule */
-                  <div className="h-full min-h-[380px] border border-dashed border-[#2e2f2d]/30 bg-[#eeeee8] p-8 sm:p-12 flex flex-col justify-between relative overflow-hidden">
-                    <div className="flex items-center justify-between border-b border-[#2e2f2d]/10 pb-4">
-                      <span className="font-mono text-xs text-[#2e2f2d]/50">MODUL DALAM TAHAP PENGEMBANGAN</span>
+                <div className="h-full min-h-[380px] lg:min-h-[440px] border border-[#deded6] bg-white shadow-sm flex flex-col">
+                  {/* Frame Top Bar */}
+                  <div className="flex items-center justify-between border-b border-[#deded6] bg-[#f0f0eb] px-4 py-2.5">
+                    <div className="flex items-center gap-2">
+                      <span className="h-2.5 w-2.5 rounded-full bg-[#deded6]" />
+                      <span className="h-2.5 w-2.5 rounded-full bg-[#deded6]" />
+                      <span className="h-2.5 w-2.5 rounded-full bg-[#deded6]" />
+                      <span className="ml-2 font-mono text-[10px] text-[#2e2f2d]/50 hidden sm:inline">
+                        https://app.jamparingmasagi.id/{activeProduct.slug}
+                      </span>
                     </div>
-
-                    <div className="my-auto text-center py-8">
-                      <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center border border-[#2e2f2d]/20 bg-white text-[#2e2f2d]">
-                        <ProductIcon name={activeProduct.icon} className="h-8 w-8" />
-                      </div>
-                      <h4 className="font-display text-2xl font-bold uppercase text-[#2e2f2d]">
-                        {activeProduct.name}
-                      </h4>
-                      <p className="mt-2 text-xs sm:text-sm text-[#2e2f2d]/60 max-w-sm mx-auto">
-                        Modul penagihan dan rekonsiliasi iuran bulanan sedang disiapkan untuk melengkapi ekosistem keuangan Jamparing Masagi.
-                      </p>
-                      <div className="mt-6 inline-block text-[11px] font-mono text-[#2e2f2d]/50 bg-white px-3 py-1 border border-[#2e2f2d]/10">
-                        TODO(isi-konten): Tangkapan layar UI resmi akan ditampilkan saat fase rilis publik
-                      </div>
-                    </div>
-
-                    <div className="border-t border-[#2e2f2d]/10 pt-4 flex items-center justify-between text-xs text-[#2e2f2d]/50">
-                      <span>Perkiraan Rilis: Q3/Q4</span>
-                      <span>Kategori: Money Collection</span>
+                    <div className="flex items-center gap-1.5 font-mono text-[10px] text-[#2e2f2d]/60">
+                      <ShieldCheck className="h-3.5 w-3.5 text-[#2e2f2d]" />
                     </div>
                   </div>
-                ) : (
-                  /* Live Product Editorial Browser Frame */
-                  <div className="h-full min-h-[380px] border border-[#deded6] bg-white shadow-sm flex flex-col">
-                    {/* Frame Top Bar */}
-                    <div className="flex items-center justify-between border-b border-[#deded6] bg-[#f0f0eb] px-4 py-2.5">
-                      <div className="flex items-center gap-2">
-                        <span className="h-2.5 w-2.5 rounded-full bg-[#deded6]" />
-                        <span className="h-2.5 w-2.5 rounded-full bg-[#deded6]" />
-                        <span className="h-2.5 w-2.5 rounded-full bg-[#deded6]" />
-                        <span className="ml-2 font-mono text-[10px] text-[#2e2f2d]/50 hidden sm:inline">
-                          https://app.jamparingmasagi.id/{activeProduct.slug}
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-1.5 font-mono text-[10px] text-[#2e2f2d]/60">
-                        <ShieldCheck className="h-3.5 w-3.5 text-[#2e2f2d]" />
-                        <span>VERIFIED ENTERPRISE</span>
+
+                  {/* Frame Inner Wireframe Placeholder */}
+                  <div className="p-5 sm:p-7 flex-1 flex flex-col gap-4 bg-[#fbfbf9]">
+                    {/* Top Row: Left Large Box (Play Symbol) + Right Stacked Boxes (Crossed X Lines) */}
+                    <div className="grid grid-cols-12 gap-3.5 sm:gap-4 flex-1 min-h-[190px]">
+                      <WireframeBox
+                        className="col-span-7 h-full min-h-[160px]"
+                        hasX={false}
+                        hasPlay={true}
+                      />
+                      <div className="col-span-5 flex flex-col gap-3.5 sm:gap-4 h-full">
+                        <WireframeBox className="flex-1 min-h-[72px]" hasX={true} />
+                        <WireframeBox className="flex-1 min-h-[72px]" hasX={true} />
                       </div>
                     </div>
 
-                    {/* Frame Inner Interactive Preview */}
-                    <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between bg-[#fbfbf9]">
-                      <div className="flex items-center justify-between border-b border-[#deded6] pb-4">
-                        <div>
-                          <p className="font-display text-[11px] font-bold uppercase tracking-wider text-[#2e2f2d]/50 mb-1">Dashboard Interface</p>
-                          <h4 className="font-display text-xl font-bold text-[#2e2f2d] uppercase">
-                            {activeProduct.name} Console
-                          </h4>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <span className="h-2 w-2 rounded-full bg-emerald-600 animate-pulse" />
-                          <span className="font-mono text-xs text-[#2e2f2d] font-semibold">Service Online</span>
-                        </div>
-                      </div>
-
-                      {/* Mock UI Data Representation (clean, technical, no cheesy AI artwork) */}
-                      <div className="my-6 grid grid-cols-2 gap-4">
-                        <div className="border border-[#deded6] bg-white p-4">
-                          <p className="text-[11px] text-[#2e2f2d]/60 font-body">Status Operasional</p>
-                          <p className="mt-1 font-display text-lg font-bold text-[#2e2f2d]">100% Aktif</p>
-                          <p className="mt-1 text-[10px] font-mono text-emerald-700">Kesiapan Modul Teruji</p>
-                        </div>
-                        <div className="border border-[#deded6] bg-white p-4">
-                          <p className="text-[11px] text-[#2e2f2d]/60 font-body">Protokol Akses</p>
-                          <p className="mt-1 font-display text-lg font-bold text-[#2e2f2d]">RBAC Level</p>
-                          <p className="mt-1 text-[10px] font-mono text-[#2e2f2d]/60">Terenkripsi Standar ERP</p>
-                        </div>
-                        <div className="border border-[#deded6] bg-white p-4 col-span-2">
-                          <p className="text-[11px] text-[#2e2f2d]/60 font-body">Integrasi Terpasang</p>
-                          <div className="mt-2 flex flex-wrap gap-2">
-                            <span className="px-2 py-0.5 bg-[#eeeee8] text-[10px] font-mono text-[#2e2f2d] border border-[#deded6]">
-                              Single Sign-On (SSO)
-                            </span>
-                            <span className="px-2 py-0.5 bg-[#eeeee8] text-[10px] font-mono text-[#2e2f2d] border border-[#deded6]">
-                              Export Excel & PDF
-                            </span>
-                            <span className="px-2 py-0.5 bg-[#eeeee8] text-[10px] font-mono text-[#2e2f2d] border border-[#deded6]">
-                              Central Audit Trail
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="border-t border-[#deded6] pt-3 flex items-center justify-between text-[11px] text-[#2e2f2d]/50">
-                        <span>TODO(isi-konten): Tangkapan layar resmi produk dapat disematkan di sini</span>
-                        <span className="font-mono font-bold text-[#2e2f2d]">VER. 2.4.0</span>
-                      </div>
-                    </div>
+                    {/* Bottom Row: Full-width Horizontal Box (Crossed X Lines) */}
+                    <WireframeBox className="h-20 sm:h-24 w-full" hasX={true} />
                   </div>
-                )}
+                </div>
               </div>
             </motion.div>
           </AnimatePresence>
