@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Container } from "@/components/ui/Container";
 import { products } from "@/data/products";
 import { ProductIcon } from "@/components/ui/ProductIcon";
-import { ArrowUpRight, CheckCircle2, ShieldCheck } from "lucide-react";
+import { CheckCircle2, ShieldCheck } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/lib/utils";
 
@@ -167,38 +167,6 @@ export function ProductShowcase() {
                         </li>
                       ))}
                     </ul>
-                  </div>
-                </div>
-
-                {/* Bottom CTA & Highlight */}
-                <div className="mt-10 pt-6 border-t border-[#deded6] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                  {activeProduct.highlight && (
-                    <div className="text-xs text-[#2e2f2d]/70">
-                      <span className="font-display font-bold uppercase text-[#2e2f2d] block">
-                        Menawarkan
-                      </span>
-                      {activeProduct.highlight}
-                    </div>
-                  )}
-
-                  <div>
-                    {activeProduct.status === "coming-soon" ? (
-                      <a
-                        href="#contact"
-                        className="inline-flex items-center gap-2 border border-[#2e2f2d] bg-white px-5 py-3 font-display text-xs font-bold uppercase tracking-wider text-[#2e2f2d] transition-colors hover:bg-[#2e2f2d] hover:text-white"
-                      >
-                        Daftar Notifikasi Rilis
-                        <ArrowUpRight className="h-4 w-4" />
-                      </a>
-                    ) : (
-                      <a
-                        href="#contact"
-                        className="inline-flex items-center gap-2 bg-accent-500 px-6 py-3 font-display text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-accent-600 shadow-sm"
-                      >
-                        Request Demo {activeProduct.name}
-                        <ArrowUpRight className="h-4 w-4" />
-                      </a>
-                    )}
                   </div>
                 </div>
               </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Container } from "@/components/ui/Container";
-import { ArrowUpRight, Cpu, Layers, Lock, Gauge } from "lucide-react";
+import { Cpu, Layers, Lock, Gauge } from "lucide-react";
 
 export function WhyUs() {
   const advantages = [
@@ -41,50 +41,39 @@ export function WhyUs() {
           {/* Left Title & Statement */}
           <div className="lg:col-span-5">
             <span className="font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-[#2e2f2d]/60 block mb-2">
-              Karakteristik Sistem
+              Layanan Kami
             </span>
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-tight text-[#2e2f2d] leading-[1.1]">
               Mengapa Memilih Jamparing Masagi?
             </h2>
             <p className="mt-6 text-sm sm:text-base text-[#2e2f2d]/75 leading-relaxed">
-              Arsitektur aplikasi kami dibangun dengan fokus pada keandalan operasional,
-              kecepatan olah data, dan kemudahan adopsi oleh staf lapangan maupun jajaran manajemen.
+              Arsitektur aplikasi kami dibangun dengan fokus pada layanan operasional,
+              kecepatan dalam mengolah data, dan kemudahan dalam penggunaan nya oleh semua pengguna.
             </p>
-
-            <div className="mt-8 border border-[#deded6] bg-white p-6">
-              <span className="font-display text-[11px] font-bold uppercase tracking-wider text-[#2e2f2d]/50 block mb-1">KOMITMEN KUALITAS</span>
-              <p className="font-display text-sm font-bold uppercase text-[#2e2f2d]">
-                Dukungan Purna Jual & Pelatihan Terjadwal
-              </p>
-              <p className="mt-2 text-xs text-[#2e2f2d]/70 leading-relaxed">
-                Setiap lisensi implementasi didampingi pendampingan migrasi data awal, pelatihan staf,
-                dan SLA dukungan teknis responsif.
-              </p>
-            </div>
           </div>
 
           {/* Right Grid of Advantages */}
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
             {advantages.map((adv) => {
               const IconComp = adv.icon;
               return (
                 <div
                   key={adv.num}
-                  className="border border-[#deded6] bg-white p-6 flex flex-col justify-between"
+                  className="border border-[#deded6] bg-white p-4 sm:p-5 flex flex-col justify-between"
                 >
                   <div>
-                    <div className="flex items-center justify-between border-b border-[#deded6] pb-3 mb-4">
+                    <div className="flex items-center justify-between border-b border-[#deded6] pb-2.5 mb-3">
                       <span className="font-mono text-xs font-bold text-accent-500">
                         {adv.num}
                       </span>
                       <IconComp className="h-4 w-4 text-[#2e2f2d]/60" />
                     </div>
 
-                    <h3 className="font-display text-lg font-bold uppercase text-[#2e2f2d]">
+                    <h3 className="font-display text-sm sm:text-base font-bold uppercase text-[#2e2f2d]">
                       {adv.title}
                     </h3>
 
-                    <p className="mt-3 text-xs sm:text-sm text-[#2e2f2d]/70 leading-relaxed">
+                    <p className="mt-2 text-xs sm:text-[13px] text-[#2e2f2d]/70 leading-relaxed">
                       {adv.description}
                     </p>
                   </div>
