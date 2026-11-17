@@ -8,12 +8,12 @@ import { ArrowUpRight, MessageSquare, Mail, Phone, CheckCircle2, ChevronDown, Ch
 import { cn } from "@/lib/utils";
 
 const PRODUCT_OPTIONS = [
-  { value: "Semua Produk (Full Suite)", label: "Semua Modul (Full Suite ERP)", tag: "5 Modul Terpadu" },
-  { value: "DIGIARS (Digital Arsip)", label: "DIGIARS — Digital Arsip Perusahaan", tag: "Digitalisasi Dokumen" },
-  { value: "WMS (Water Monitoring System)", label: "WMS — Water Monitoring System IoT", tag: "Telemetri IoT Air" },
-  { value: "PESANDONG (Kasir POS)", label: "PESANDONG — Kasir POS & Inventori", tag: "Point of Sale" },
-  { value: "KEUANGAN (Iuran & SPP)", label: "KEUANGAN — Manajemen Iuran, SPP & Tagihan", tag: "Money Collection" },
-  { value: "HRM (Absensi, Task & Surat)", label: "HRM — Absensi, Task & Surat Menyurat", tag: "Manajemen SDM" },
+  { value: "Semua Produk (Full Suite)", label: "Semua Modul (Full Suite ERP)", tag: "Semua Modul" },
+  { value: "DIGIARS", label: "DIGIARS — Manajemen Arsip", tag: "Digitalisasi Dokumen" },
+  { value: "Water Monitoring System", label: "Water Monitoring System — Manajemen Perpajakan Air Tanah", tag: "Telemetri IoT Air" },
+  { value: "PESANDONG", label: "PESANDONG — Manajemen Kasir POS & Inventori", tag: "Point of Sale" },
+  { value: "Finance System", label: "Finance System — Manajemen Iuran, SPP & Tagihan", tag: "Money Collection" },
+  { value: "HR management", label: "HR Management — Manajemen Absensi, Task & Surat Menyurat", tag: "Manajemen SDM" },
 ];
 
 export function CTA() {
