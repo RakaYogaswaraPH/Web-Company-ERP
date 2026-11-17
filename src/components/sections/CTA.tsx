@@ -8,12 +8,12 @@ import { ArrowUpRight, MessageSquare, Mail, Phone, CheckCircle2, ChevronDown, Ch
 import { cn } from "@/lib/utils";
 
 const PRODUCT_OPTIONS = [
-  { value: "Semua Produk (Full Suite)", label: "Semua Modul (Full Suite ERP)", tag: "Semua Modul" },
-  { value: "DIGIARS", label: "DIGIARS — Manajemen Arsip", tag: "Digitalisasi Dokumen" },
-  { value: "Water Monitoring System", label: "Water Monitoring System — Manajemen Perpajakan Air Tanah", tag: "Telemetri IoT Air" },
-  { value: "PESANDONG", label: "PESANDONG — Manajemen Kasir POS & Inventori", tag: "Point of Sale" },
-  { value: "Finance System", label: "Finance System — Manajemen Iuran, SPP & Tagihan", tag: "Money Collection" },
-  { value: "HR management", label: "HR Management — Manajemen Absensi, Task & Surat Menyurat", tag: "Manajemen SDM" },
+  { value: "Semua Produk (Full Suite)", label: "Semua Modul (Full Suite ERP)"},
+  { value: "DIGIARS", label: "DIGIARS — Manajemen Arsip"},
+  { value: "Water Monitoring System", label: "Water Monitoring System — Manajemen Perpajakan Air Tanah"},
+  { value: "PESANDONG", label: "PESANDONG — Manajemen Kasir POS & Inventori"},
+  { value: "Finance System", label: "Finance System — Manajemen Iuran, SPP & Tagihan"},
+  { value: "HR management", label: "HR Management — Manajemen Absensi, Task & Surat Menyurat"},
 ];
 
 export function CTA() {
@@ -259,9 +259,6 @@ export function CTA() {
                         <span className="font-light text-[#2e2f2d] truncate">
                           {selectedOption.label}
                         </span>
-                        <span className="hidden sm:inline font-mono text-[10px] text-[#2e2f2d]/50 bg-[#eeeee8] px-1.5 py-0.5 shrink-0">
-                          {selectedOption.tag}
-                        </span>
                       </div>
                       <ChevronDown
                         className={cn(
@@ -307,7 +304,6 @@ export function CTA() {
                                       isSelected ? "text-white/70" : "text-[#2e2f2d]/60"
                                     )}
                                   >
-                                    {opt.tag}
                                   </p>
                                 </div>
                                 {isSelected && <Check className="h-4 w-4 text-accent-500 shrink-0 ml-2" />}
