@@ -120,11 +120,15 @@ export function ProductShowcase() {
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 border-b border-[#deded6] bg-[#fefeff]">
           {products.map((p, idx) => {
             const isActive = idx === activeIndex;
+            const isLastOdd = idx === products.length - 1;
             return (
               <button
                 key={p.slug}
                 onClick={() => handleTabChange(idx)}
-                className="group relative flex flex-col p-4 text-left border-r border-b sm:border-b-0 border-[#deded6] transition-colors cursor-pointer overflow-hidden"
+                className={cn(
+                  "group relative flex flex-col p-3.5 sm:p-4 text-left border-r border-b sm:border-b-0 border-[#deded6] transition-colors cursor-pointer overflow-hidden",
+                  isLastOdd ? "col-span-2 sm:col-span-1" : ""
+                )}
               >
                 {isActive && (
                   <motion.div
@@ -240,7 +244,7 @@ export function ProductShowcase() {
                   initial={{ opacity: 0, scale: 0.98 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.38, delay: 0.08 }}
-                  className="h-full min-h-[380px] lg:min-h-[440px] border border-[#deded6] bg-white shadow-xs flex flex-col"
+                  className="h-full min-h-[290px] sm:min-h-[380px] lg:min-h-[440px] border border-[#deded6] bg-white shadow-xs flex flex-col"
                 >
                   {/* Frame Top Bar */}
                   <div className="flex items-center justify-between border-b border-[#deded6] bg-[#f0f0eb] px-4 py-2.5">

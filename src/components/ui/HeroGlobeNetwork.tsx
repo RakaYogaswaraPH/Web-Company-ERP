@@ -99,15 +99,15 @@ export function HeroGlobeNetwork() {
           if (dist < maxDistance) {
             const avgDepth = (na.depth + nb.depth) / 2;
             const distanceFactor = 1 - dist / maxDistance;
-            // Enhanced opacity for bold, eyecatching web structure
-            const lineAlpha = distanceFactor * avgDepth * 0.52;
+            // Clean, refined opacity so it stays in background behind headline
+            const lineAlpha = distanceFactor * avgDepth * 0.32;
 
             ctx.beginPath();
             ctx.moveTo(na.x, na.y);
             ctx.lineTo(nb.x, nb.y);
             ctx.strokeStyle = `rgba(46, 47, 45, ${lineAlpha})`;
-            // Thicker stroke width (1.4px to 2.8px)
-            ctx.lineWidth = 1.2 + avgDepth * 1.6;
+            // Crisp, thinner stroke width (0.8px to 1.3px)
+            ctx.lineWidth = 0.7 + avgDepth * 0.65;
             ctx.stroke();
           }
         }
@@ -121,8 +121,8 @@ export function HeroGlobeNetwork() {
             ctx.beginPath();
             ctx.moveTo(na.x, na.y);
             ctx.lineTo(mouseX, mouseY);
-            ctx.strokeStyle = `rgba(46, 47, 45, ${mFactor * na.depth * 0.65})`;
-            ctx.lineWidth = 1.6 + na.depth * 1.5;
+            ctx.strokeStyle = `rgba(46, 47, 45, ${mFactor * na.depth * 0.45})`;
+            ctx.lineWidth = 1.0 + na.depth * 0.8;
             ctx.stroke();
           }
         }

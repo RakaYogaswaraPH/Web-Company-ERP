@@ -46,11 +46,26 @@ export function Masagi3DViewer() {
     // 1. Scene Setup
     const scene = new THREE.Scene();
 
-    // 2. Camera Setup
-    const width = container.clientWidth || 420;
-    const height = container.clientHeight || 450;
+    // 2. Camera Setup & Responsive FOV Projection
+    const width = container.clientWidth || 360;
+    const height = container.clientHeight || 300;
     const camera = new THREE.PerspectiveCamera(38, width / height, 0.1, 1000);
-    camera.position.set(0, 0, 31);
+
+    const updateCameraProjection = (w: number, h: number) => {
+      const aspect = w / h;
+      camera.aspect = aspect;
+      // In mobile portrait or narrow screen, zoom out so 3D emblem fits comfortably
+      if (w < 480) {
+        camera.position.z = 44;
+      } else if (w < 768) {
+        camera.position.z = 37;
+      } else {
+        camera.position.z = 31;
+      }
+      camera.updateProjectionMatrix();
+    };
+
+    updateCameraProjection(width, height);
 
     // 3. Renderer Setup (Transparent background, high anti-aliasing)
     const renderer = new THREE.WebGLRenderer({
@@ -128,7 +143,7 @@ export function Masagi3DViewer() {
     group.rotation.z = -0.06;
     scene.add(group);
 
-    // 6. Smooth Mouse & Touch Drag Controls with Natural Inertia
+    // 6. Smooth Mouse & Touch Drag Controls with Natural Inertia & Mobile Gesture Freedom
     let pointerDown = false;
     let prevX = 0;
     let prevY = 0;
@@ -144,6 +159,9 @@ export function Masagi3DViewer() {
       velX = 0;
       velY = 0;
       autoRotateTimer = 0;
+      try {
+        (e.target as HTMLElement)?.setPointerCapture(e.pointerId);
+      } catch (_) {}
     };
 
     const onPointerMove = (e: PointerEvent) => {
@@ -161,15 +179,42 @@ export function Masagi3DViewer() {
       prevY = e.clientY;
     };
 
-    const onPointerUp = () => {
+    const onPointerUp = (e?: PointerEvent) => {
+      pointerDown = false;
+      setIsDragging(false);
+      if (e && e.pointerId) {
+        try {
+          (e.target as HTMLElement)?.releasePointerCapture(e.pointerId);
+        } catch (_) {}
+      }
+    };
+
+    const onPointerCancel = (e?: PointerEvent) => {
+      pointerDown = false;
+      setIsDragging(false);
+      velX = 0;
+      velY = 0;
+      if (e && e.pointerId) {
+        try {
+          (e.target as HTMLElement)?.releasePointerCapture(e.pointerId);
+        } catch (_) {}
+      }
+    };
+
+    const handleBlur = () => {
       pointerDown = false;
       setIsDragging(false);
     };
 
     const dom = renderer.domElement;
+    dom.style.touchAction = "pan-y"; // Allows vertical page scroll on mobile while swiping
     dom.addEventListener("pointerdown", onPointerDown);
-    window.addEventListener("pointermove", onPointerMove);
+    dom.addEventListener("pointermove", onPointerMove);
+    dom.addEventListener("pointerup", onPointerUp);
+    dom.addEventListener("pointercancel", onPointerCancel);
     window.addEventListener("pointerup", onPointerUp);
+    window.addEventListener("pointercancel", onPointerCancel);
+    window.addEventListener("blur", handleBlur);
 
     // 7. Render Loop: Inertia Damping & Steady Smooth Rotation (No bobbing/floating)
     let animationFrameId: number;
@@ -199,14 +244,13 @@ export function Masagi3DViewer() {
 
     animate();
 
-    // 8. Responsive Resize Observer
+    // 8. Responsive Resize Observer with Adaptive Mobile Perspective
     const resizeObserver = new ResizeObserver((entries) => {
       for (const entry of entries) {
         const newW = entry.contentRect.width;
         const newH = entry.contentRect.height;
         if (newW > 0 && newH > 0) {
-          camera.aspect = newW / newH;
-          camera.updateProjectionMatrix();
+          updateCameraProjection(newW, newH);
           renderer.setSize(newW, newH);
         }
       }
@@ -218,8 +262,12 @@ export function Masagi3DViewer() {
       cancelAnimationFrame(animationFrameId);
       resizeObserver.disconnect();
       dom.removeEventListener("pointerdown", onPointerDown);
-      window.removeEventListener("pointermove", onPointerMove);
+      dom.removeEventListener("pointermove", onPointerMove);
+      dom.removeEventListener("pointerup", onPointerUp);
+      dom.removeEventListener("pointercancel", onPointerCancel);
       window.removeEventListener("pointerup", onPointerUp);
+      window.removeEventListener("pointercancel", onPointerCancel);
+      window.removeEventListener("blur", handleBlur);
       if (container.contains(dom)) {
         container.removeChild(dom);
       }
@@ -236,7 +284,7 @@ export function Masagi3DViewer() {
   return (
     <div
       ref={containerRef}
-      className={`relative w-full h-[380px] sm:h-[450px] lg:h-[480px] select-none flex items-center justify-center ${
+      className={`relative w-full h-[250px] sm:h-[340px] md:h-[400px] lg:h-[460px] select-none flex items-center justify-center touch-pan-y ${
         isDragging ? "cursor-grabbing" : "cursor-grab"
       }`}
     />

@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
+import { Preloader } from "@/components/ui/Preloader";
 import { siteConfig } from "@/config/site";
 
 const chakraPetch = Chakra_Petch({
@@ -71,6 +72,7 @@ export default function RootLayout({
     <html lang="id" className={`${chakraPetch.variable} ${openSans.variable}`}>
       <body className="min-h-screen flex flex-col bg-[#f6f6f2] text-foreground font-body antialiased selection:bg-accent-500 selection:text-white">
         <SmoothScroll>
+          <Preloader />
           <Navbar />
           <main className="flex-1 pl-0 md:pl-16">{children}</main>
           <Footer />

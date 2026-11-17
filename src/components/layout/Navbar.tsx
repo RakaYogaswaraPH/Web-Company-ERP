@@ -135,7 +135,7 @@ export function Navbar() {
             </div>
 
             {/* Desktop Center: Tagline text */}
-            <div className="hidden md:flex items-center justify-center flex-1 px-4 text-center">
+            <div className="hidden lg:flex items-center justify-center flex-1 px-4 text-center">
               <span className="font-display text-xs lg:text-sm font-light uppercase tracking-[0.25em] text-[#2e2f2d]">
                 More Than Just ICT Solution
               </span>

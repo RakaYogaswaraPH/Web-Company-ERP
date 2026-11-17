@@ -19,20 +19,20 @@ export function Hero() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col items-center text-center"
         >
-          {/* Main Hero Headline (Grand, Bold, Impactful) */}
-          <h1 className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[86px] font-bold uppercase tracking-tight text-[#2e2f2d] leading-[1.02] text-balance max-w-6xl drop-shadow-xs">
+          {/* Main Hero Headline (Grand, Bold, Impactful across all screens) */}
+          <h1 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[84px] font-bold uppercase tracking-tight text-[#2e2f2d] leading-[1.05] text-balance max-w-6xl drop-shadow-xs px-2 sm:px-0">
             Unleash your business growth potential
           </h1>
 
-          <p className="mt-8 max-w-2xl text-base sm:text-lg lg:text-xl text-[#2e2f2d]/80 leading-relaxed font-body">
+          <p className="mt-6 sm:mt-8 max-w-2xl text-sm sm:text-base lg:text-lg text-[#2e2f2d]/80 leading-relaxed font-body px-4 sm:px-0">
             Optimalkan dan penuhi semua kebutuhan bisnis Anda dalam satu platform dengan mudah, cepat, dan efisien.
           </p>
 
-          {/* Action Buttons (Strictly Equal Dimensions & Perfect Visual Balance) */}
-          <div className="mt-12 flex flex-wrap items-center justify-center gap-4 sm:gap-5">
+          {/* Action Buttons (Full width on mobile, balanced side-by-side on tablet/desktop) */}
+          <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-5 w-full sm:w-auto px-4 sm:px-0">
             <a
               href="#portfolio"
-              className="inline-flex items-center justify-center gap-2.5 border-2 border-accent-500 bg-accent-500 px-7 py-3.5 font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-white transition-all hover:bg-accent-600 hover:border-accent-600 active:scale-95 shadow-sm min-w-[210px]"
+              className="inline-flex items-center justify-center gap-2.5 border-2 border-accent-500 bg-accent-500 px-6 sm:px-7 py-3 sm:py-3.5 font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-white transition-all hover:bg-accent-600 hover:border-accent-600 active:scale-95 shadow-sm w-full sm:w-auto sm:min-w-[210px]"
             >
               Mulai Sekarang
               <ArrowDown className="h-4 w-4" />
@@ -40,7 +40,7 @@ export function Hero() {
 
             <a
               href="#contact"
-              className="inline-flex items-center justify-center gap-2.5 border-2 border-[#2e2f2d] bg-[#f6f6f2]/80 backdrop-blur-xs px-7 py-3.5 font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-[#2e2f2d] transition-all hover:bg-[#2e2f2d] hover:text-white active:scale-95 min-w-[210px]"
+              className="inline-flex items-center justify-center gap-2.5 border-2 border-[#2e2f2d] bg-[#f6f6f2]/80 backdrop-blur-xs px-6 sm:px-7 py-3 sm:py-3.5 font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-[#2e2f2d] transition-all hover:bg-[#2e2f2d] hover:text-white active:scale-95 w-full sm:w-auto sm:min-w-[210px]"
             >
               Jadwalkan Uji Coba
               <ArrowUpRight className="h-4 w-4" />
