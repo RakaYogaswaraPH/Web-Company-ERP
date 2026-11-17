@@ -6,30 +6,30 @@ export function WhyUs() {
   const advantages = [
     {
       num: "01",
-      title: "Interkoneksi Tanpa Silo Data",
+      title: "Sistem Cloud",
       description:
-        "Data presensi dan tugas kerja di HRM terhubung langsung dengan dokumen arsip di DIGIARS, serta rekap omzet kasir PESANDONG dan penagihan KEUANGAN terpusat tanpa perantara ekspor manual.",
+        "Akses seluruh sistem dengan mudah dan cepat dimana saja dan kapan saja.",
       icon: Layers,
     },
     {
       num: "02",
-      title: "Kapabilitas IoT Hardware & Software",
+      title: "Keamanan Data",
       description:
-        "Bukan sekadar form input data administratif; kami mengintegrasikan gateway telemetri fisik sensor air (WMS) langsung ke dashboard analitik dan kalkulasi pajak terpadu.",
+        "Prosedur keamanan bersertifikasi ISO 27001 yang diterapkan pada semua sistem kami.",
       icon: Cpu,
     },
     {
       num: "03",
-      title: "Audit Trail & Keamanan Bertingkat",
+      title: "Manajemen Pengguna",
       description:
-        "Role-Based Access Control (RBAC) ketat pada setiap modul memastikan data sensitif finansial dan kepegawaian hanya dapat diakses personel berwenang dengan log aktivitas lengkap.",
+        "Pemberian hak akses guna memastikan data sensitif serta riwayat aktivitas untuk memastikan keamanan sistem terjaga.",
       icon: Lock,
     },
     {
       num: "04",
-      title: "Implementasi Fleksibel (Cloud / On-Premise)",
+      title: "Layanan 24/7",
       description:
-        "Didukung opsi instalasi di infrastruktur cloud privat yang aman atau deployment on-premise lokal untuk kepatuhan regulasi data internal perusahaan Anda.",
+        "Kami melayani bantuan teknis setiap harinya untuk mendukung operasional bisnis.",
       icon: Gauge,
     },
   ];
@@ -37,50 +37,59 @@ export function WhyUs() {
   return (
     <section id="why-us" className="border-b border-[#deded6] bg-[#f6f6f2] py-16 lg:py-24">
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          {/* Left Title & Statement */}
-          <div className="lg:col-span-5">
+        {/* Top Header: Title on Left, Statement on Right */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-10 border-b border-[#deded6]">
+          <div className="max-w-xl">
             <span className="font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-[#2e2f2d]/60 block mb-2">
               Layanan Kami
             </span>
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-tight text-[#2e2f2d] leading-[1.1]">
-              Mengapa Memilih Jamparing Masagi?
+              Mengapa Memilih Kami?
             </h2>
-            <p className="mt-6 text-sm sm:text-base text-[#2e2f2d]/75 leading-relaxed">
-              Arsitektur aplikasi kami dibangun dengan fokus pada layanan operasional,
-              kecepatan dalam mengolah data, dan kemudahan dalam penggunaan nya oleh semua pengguna.
-            </p>
           </div>
+          <p className="max-w-md text-sm sm:text-base text-[#2e2f2d]/75 leading-relaxed">
+            Arsitektur aplikasi kami dibangun dengan fokus pada layanan operasional,
+            kecepatan dalam mengolah data, dan kemudahan dalam penggunaan nya oleh semua pengguna.
+          </p>
+        </div>
 
-          {/* Right Grid of Advantages */}
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {advantages.map((adv) => {
-              const IconComp = adv.icon;
-              return (
-                <div
-                  key={adv.num}
-                  className="border border-[#deded6] bg-white p-4 sm:p-5 flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="flex items-center justify-between border-b border-[#deded6] pb-2.5 mb-3">
-                      <span className="font-mono text-xs font-bold text-accent-500">
-                        {adv.num}
-                      </span>
-                      <IconComp className="h-4 w-4 text-[#2e2f2d]/60" />
+        {/* 4 Feature Columns Grid */}
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {advantages.map((adv) => {
+            const IconComp = adv.icon;
+            return (
+              <div
+                key={adv.num}
+                className="group border border-[#deded6] bg-white p-6 sm:p-7 flex flex-col justify-between transition-all duration-200 hover:border-[#2e2f2d]/40 hover:shadow-sm"
+              >
+                <div>
+                  <div className="flex items-center justify-between border-b border-[#deded6] pb-3 mb-5">
+                    <span className="font-mono text-xs font-bold text-accent-500">
+                      {adv.num}
+                    </span>
+                    <div className="flex h-8 w-8 items-center justify-center bg-[#f6f6f2] border border-[#deded6] text-[#2e2f2d] transition-colors group-hover:bg-[#2e2f2d] group-hover:text-white">
+                      <IconComp className="h-4 w-4" />
                     </div>
-
-                    <h3 className="font-display text-sm sm:text-base font-bold uppercase text-[#2e2f2d]">
-                      {adv.title}
-                    </h3>
-
-                    <p className="mt-2 text-xs sm:text-[13px] text-[#2e2f2d]/70 leading-relaxed">
-                      {adv.description}
-                    </p>
                   </div>
+
+                  <h3 className="font-display text-base font-bold uppercase tracking-wide text-[#2e2f2d]">
+                    {adv.title}
+                  </h3>
+
+                  <p className="mt-3 text-xs sm:text-sm text-[#2e2f2d]/70 leading-relaxed font-body">
+                    {adv.description}
+                  </p>
                 </div>
-              );
-            })}
-          </div>
+
+                <div className="mt-8 pt-3 border-t border-[#deded6]/60 flex items-center justify-between">
+                  <span className="font-mono text-[10px] tracking-wider uppercase text-[#2e2f2d]/40">
+                    Standar ERP Masagi
+                  </span>
+                  <span className="h-1.5 w-1.5 rounded-full bg-accent-500/40 group-hover:bg-accent-500 transition-colors" />
+                </div>
+              </div>
+            );
+          })}
         </div>
       </Container>
     </section>

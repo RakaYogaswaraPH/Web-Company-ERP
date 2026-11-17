@@ -171,29 +171,28 @@ export function Masagi3DViewer() {
     window.addEventListener("pointermove", onPointerMove);
     window.addEventListener("pointerup", onPointerUp);
 
-    // 7. Render Loop: Inertia Damping & Gentle Idle Floating
+    // 7. Render Loop: Inertia Damping & Steady Smooth Rotation (No bobbing/floating)
     let animationFrameId: number;
-    const clock = new THREE.Clock();
 
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
-      const elapsedTime = clock.getElapsedTime();
 
       if (!pointerDown) {
-        // Apply friction
+        // Apply inertia friction from drag
         group.rotation.y += velX;
         group.rotation.x += velY;
         velX *= 0.94;
         velY *= 0.94;
 
         autoRotateTimer += 0.016;
-        if (autoRotateTimer > 1.2 && Math.abs(velX) < 0.001 && Math.abs(velY) < 0.001) {
-          // Gentle idle floating & subtle slow rotation
-          group.rotation.y += 0.005;
-          group.position.y = Math.sin(elapsedTime * 1.6) * 0.45;
-          group.position.x = Math.cos(elapsedTime * 1.2) * 0.25;
+        if (autoRotateTimer > 0.8 && Math.abs(velX) < 0.001 && Math.abs(velY) < 0.001) {
+          // Clean continuous rotation around Y axis without any vertical floating
+          group.rotation.y += 0.004;
         }
       }
+
+      // Keep position strictly fixed at center
+      group.position.set(0, 0, 0);
 
       renderer.render(scene, camera);
     };
@@ -240,7 +239,6 @@ export function Masagi3DViewer() {
       className={`relative w-full h-[380px] sm:h-[450px] lg:h-[480px] select-none flex items-center justify-center ${
         isDragging ? "cursor-grabbing" : "cursor-grab"
       }`}
-      title="Klik dan seret untuk memutar logo Masagi 3D"
     />
   );
 }
