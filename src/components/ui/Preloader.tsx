@@ -62,7 +62,7 @@ export function Preloader() {
           key="preloader"
           initial={{ opacity: 1 }}
           exit={{
-            y: "-100%",
+            opacity: 0,
             transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] },
           }}
           className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#f6f6f2] select-none"

@@ -67,29 +67,26 @@ function WireframeBox({
   );
 }
 
-// Directional animation variants for smooth, eye-catching tab transitions
+// Hardware-accelerated directional animation variants with zero text jitter
 const showcaseVariants = {
   enter: (dir: number) => ({
-    x: dir > 0 ? 32 : dir < 0 ? -32 : 0,
+    x: dir > 0 ? 24 : dir < 0 ? -24 : 0,
     opacity: 0,
-    scale: 0.985,
   }),
   center: {
     x: 0,
     opacity: 1,
-    scale: 1,
     transition: {
-      duration: 0.38,
+      duration: 0.32,
       ease: [0.16, 1, 0.3, 1] as const,
     },
   },
   exit: (dir: number) => ({
-    x: dir > 0 ? -24 : 24,
+    x: dir > 0 ? -20 : 20,
     opacity: 0,
-    scale: 0.985,
     transition: {
-      duration: 0.24,
-      ease: [0.4, 0, 0.7, 1] as const,
+      duration: 0.2,
+      ease: [0.4, 0, 1, 1] as const,
     },
   }),
 };
@@ -168,7 +165,7 @@ export function ProductShowcase() {
           })}
         </div>
 
-        {/* Thinking Room Style Slide Showcase Body */}
+        {/* Thinking Room Style Slide Showcase Body with Butter-Smooth Transition */}
         <div className="mt-12 overflow-hidden">
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div
@@ -178,42 +175,27 @@ export function ProductShowcase() {
               initial="enter"
               animate="center"
               exit="exit"
-              className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch"
+              className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch transform-gpu will-change-transform"
             >
               {/* Left Column: Product Information & Features */}
               <div className="lg:col-span-6 flex flex-col justify-between py-2">
                 <div>
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.35, delay: 0.05 }}
-                    className="flex items-center gap-4"
-                  >
+                  <div className="flex items-center gap-4">
                     <div className="flex h-12 w-12 items-center justify-center bg-[#2e2f2d] text-white">
                       <ProductIcon name={activeProduct.icon} className="h-6 w-6" />
                     </div>
                     <h3 className="font-display text-4xl sm:text-5xl font-bold uppercase tracking-tight text-[#2e2f2d]">
                       {activeProduct.name}
                     </h3>
-                  </motion.div>
+                  </div>
 
-                  <motion.p
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.35, delay: 0.1 }}
-                    className="mt-4 font-display text-lg font-semibold text-[#2e2f2d]/90 leading-snug"
-                  >
+                  <p className="mt-4 font-display text-lg font-semibold text-[#2e2f2d]/90 leading-snug">
                     {activeProduct.tagline}
-                  </motion.p>
+                  </p>
 
-                  <motion.p
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.35, delay: 0.14 }}
-                    className="mt-4 text-sm sm:text-base text-[#2e2f2d]/75 leading-relaxed"
-                  >
+                  <p className="mt-4 text-sm sm:text-base text-[#2e2f2d]/75 leading-relaxed font-body">
                     {activeProduct.description}
-                  </motion.p>
+                  </p>
 
                   {/* Feature Checklist */}
                   <div className="mt-8">
@@ -222,16 +204,13 @@ export function ProductShowcase() {
                     </p>
                     <ul className="space-y-2.5">
                       {activeProduct.features.map((feat, fIdx) => (
-                        <motion.li
+                        <li
                           key={fIdx}
-                          initial={{ opacity: 0, x: -12 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.3, delay: 0.16 + fIdx * 0.04 }}
                           className="flex items-start gap-2.5 text-xs sm:text-sm text-[#2e2f2d]/80"
                         >
                           <CheckCircle2 className="h-4 w-4 text-[#2e2f2d] shrink-0 mt-0.5" />
                           <span>{feat}</span>
-                        </motion.li>
+                        </li>
                       ))}
                     </ul>
                   </div>
@@ -240,12 +219,7 @@ export function ProductShowcase() {
 
               {/* Right Column: Editorial Wireframe Frame */}
               <div className="lg:col-span-6 flex flex-col">
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.98 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.38, delay: 0.08 }}
-                  className="h-full min-h-[290px] sm:min-h-[380px] lg:min-h-[440px] border border-[#deded6] bg-white shadow-xs flex flex-col"
-                >
+                <div className="h-full min-h-[290px] sm:min-h-[380px] lg:min-h-[440px] border border-[#deded6] bg-white shadow-xs flex flex-col">
                   {/* Frame Top Bar */}
                   <div className="flex items-center justify-between border-b border-[#deded6] bg-[#f0f0eb] px-4 py-2.5">
                     <div className="flex items-center gap-2">
@@ -279,7 +253,7 @@ export function ProductShowcase() {
                     {/* Bottom Row: Full-width Horizontal Box (Crossed X Lines) */}
                     <WireframeBox className="h-20 sm:h-24 w-full" hasX={true} />
                   </div>
-                </motion.div>
+                </div>
               </div>
             </motion.div>
           </AnimatePresence>
