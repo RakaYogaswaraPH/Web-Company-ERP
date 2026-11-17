@@ -9,12 +9,8 @@ import { HeroGlobeNetwork } from "@/components/ui/HeroGlobeNetwork";
 export function Hero() {
   return (
     <section className="relative overflow-hidden border-b border-[#deded6] min-h-[86vh] lg:min-h-[92vh] flex items-center justify-center py-24 sm:py-32 lg:py-44">
-      {/* Dynamic Animated Globe & Neural Network Background */}
+      {/* Dynamic Animated Neural Network Background */}
       <HeroGlobeNetwork />
-
-      {/* Decorative vertical editorial lines */}
-      <div className="pointer-events-none absolute inset-y-0 left-8 hidden border-r border-[#deded6]/60 xl:block z-10" />
-      <div className="pointer-events-none absolute inset-y-0 right-8 hidden border-l border-[#deded6]/60 xl:block z-10" />
 
       <Container className="relative z-10">
         <motion.div
@@ -32,11 +28,11 @@ export function Hero() {
             Optimalkan dan penuhi semua kebutuhan bisnis Anda dalam satu platform dengan mudah, efisien, dan terjangkau.
           </p>
 
-          {/* Action Buttons */}
+          {/* Action Buttons (Strictly Equal Dimensions & Perfect Visual Balance) */}
           <div className="mt-12 flex flex-wrap items-center justify-center gap-4 sm:gap-5">
             <a
               href="#portfolio"
-              className="inline-flex items-center gap-2.5 bg-accent-500 px-7 py-4 font-display text-xs sm:text-sm font-bold uppercase tracking-widest text-white transition-all hover:bg-accent-600 hover:shadow-lg active:scale-95"
+              className="inline-flex items-center justify-center gap-2.5 border-2 border-accent-500 bg-accent-500 px-7 py-3.5 font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-white transition-all hover:bg-accent-600 hover:border-accent-600 active:scale-95 shadow-sm min-w-[210px]"
             >
               Mulai Sekarang
               <ArrowDown className="h-4 w-4" />
@@ -44,7 +40,7 @@ export function Hero() {
 
             <a
               href="#contact"
-              className="inline-flex items-center gap-2.5 border-2 border-[#2e2f2d] bg-[#f6f6f2]/80 backdrop-blur-xs px-7 py-4 font-display text-xs sm:text-sm font-bold uppercase tracking-widest text-[#2e2f2d] transition-all hover:bg-[#2e2f2d] hover:text-white active:scale-95"
+              className="inline-flex items-center justify-center gap-2.5 border-2 border-[#2e2f2d] bg-[#f6f6f2]/80 backdrop-blur-xs px-7 py-3.5 font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-[#2e2f2d] transition-all hover:bg-[#2e2f2d] hover:text-white active:scale-95 min-w-[210px]"
             >
               Jadwalkan Uji Coba
               <ArrowUpRight className="h-4 w-4" />

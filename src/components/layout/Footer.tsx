@@ -1,9 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { Container } from "@/components/ui/Container";
-import { siteConfig, navItems } from "@/config/site";
-import { products } from "@/data/products";
+import { siteConfig } from "@/config/site";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -35,66 +33,93 @@ export function Footer() {
 
               <p className="text-xs text-[#2e2f2d]/75 max-w-sm leading-relaxed">
                 Platform ERP terintegrasi untuk mentransformasi tata kelola arsip perusahaan,
-                telemetri IoT pemakaian air, transaksi kasir POS, penagihan iuran & SPP, serta absensi, task, dan persuratan resmi.
+                telemetri IoT pemakaian air, transaksi kasir POS, penagihan iuran &amp; SPP, serta absensi, task, dan surat menyurat.
               </p>
             </div>
-
-            <div className="mt-8 text-xs text-[#2e2f2d]/60">
-              <p className="font-mono">{siteConfig.contact.address}</p>
-              <p className="mt-1 font-mono">{siteConfig.contact.email} • {siteConfig.contact.phone}</p>
-            </div>
           </div>
 
-          {/* Module Links */}
+          {/* Lokasi & Operasional (per reference image) */}
           <div className="lg:col-span-4">
             <p className="font-display text-xs font-bold uppercase tracking-widest text-[#2e2f2d] mb-4">
-              Portofolio 5 Modul ERP
+              LOKASI &amp; OPERASIONAL
             </p>
-            <ul className="space-y-3">
-              {products.map((p, idx) => (
-                <li key={p.slug}>
-                  <a
-                    href="#portfolio"
-                    className="group flex items-center justify-between text-xs text-[#2e2f2d]/80 hover:text-[#2e2f2d] transition-colors"
-                  >
-                    <span className="font-display font-semibold uppercase tracking-wider">
-                      0{idx + 1} • {p.name}
-                    </span>
-                    <span className="font-mono text-[10px] text-[#2e2f2d]/50 group-hover:text-accent-500 transition-colors">
-                      {p.status === "coming-soon" ? "Coming Soon" : "Live"}
-                    </span>
-                  </a>
-                </li>
-              ))}
-            </ul>
+
+            <div className="space-y-4 text-xs text-[#2e2f2d]/80">
+              <div>
+                <p className="font-display font-bold text-xs text-[#2e2f2d] mb-1">
+                  Kantor
+                </p>
+                <p className="leading-relaxed">
+                  Graha DLA Lantai 3 Suite 6, Jl. Otto Iskandar Dinata No. 392, Bandung
+                </p>
+              </div>
+
+              <div>
+                <p className="font-display font-bold text-xs text-[#2e2f2d] mb-1">
+                  Workshop
+                </p>
+                <p className="leading-relaxed">
+                  Jl. Telexina No. 4 Kebonkopi, Cibeureum, Cimahi 40535
+                </p>
+              </div>
+
+              <div className="pt-3 border-t border-[#dcdfd5]">
+                <p className="font-display font-bold text-[11px] uppercase tracking-wider text-[#2e2f2d] mb-1">
+                  JAM OPERASIONAL
+                </p>
+                <p className="font-mono text-xs text-[#2e2f2d]/70">
+                  Senin - Jumat: 08:30 - 17:00 WIB
+                </p>
+              </div>
+            </div>
           </div>
 
-          {/* Navigation Links */}
+          {/* Kontak Kami (per reference image) */}
           <div className="lg:col-span-3">
             <p className="font-display text-xs font-bold uppercase tracking-widest text-[#2e2f2d] mb-4">
-              Navigasi Halaman
+              KONTAK KAMI
             </p>
-            <ul className="space-y-2.5">
-              {navItems.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="font-display text-xs uppercase tracking-wider text-[#2e2f2d]/75 hover:text-[#2e2f2d] transition-colors font-medium"
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
 
-            <div className="mt-8 pt-6 border-t border-[#dcdfd5]">
-              <a
-                href="#contact"
-                className="inline-block bg-[#2e2f2d] hover:bg-accent-500 px-5 py-2.5 font-display text-[11px] font-bold uppercase tracking-wider text-white transition-all shadow-sm"
-              >
-                Uji Coba Sekarang
-              </a>
-            </div>
+            <ul className="space-y-2 text-xs">
+              <li>
+                <a
+                  href={`mailto:${siteConfig.contact.email}`}
+                  className="font-display font-semibold text-[#2e2f2d]/85 hover:text-accent-500 transition-colors block py-1"
+                >
+                  Email
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`https://wa.me/${siteConfig.contact.whatsapp}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-display font-semibold text-[#2e2f2d]/85 hover:text-accent-500 transition-colors block py-1"
+                >
+                  WhatsApp
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-display font-semibold text-[#2e2f2d]/85 hover:text-accent-500 transition-colors block py-1"
+                >
+                  LinkedIn
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-display font-semibold text-[#2e2f2d]/85 hover:text-accent-500 transition-colors block py-1"
+                >
+                  Instagram
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
 
