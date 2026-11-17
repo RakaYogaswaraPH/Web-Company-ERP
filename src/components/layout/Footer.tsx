@@ -32,8 +32,7 @@ export function Footer() {
               </p>
 
               <p className="text-xs text-[#2e2f2d]/75 max-w-sm leading-relaxed">
-                Platform ERP terintegrasi untuk mentransformasi tata kelola arsip perusahaan,
-                telemetri IoT pemakaian air, transaksi kasir POS, penagihan iuran &amp; SPP, serta absensi, task, dan surat menyurat.
+              PT. Jamparing Masagi membangun kerja sama dengan BUMN, instansi pemerintah, dan perusahaan swasta dalam membangun infrastruktur dan layanan dalam bidang TIK.
               </p>
             </div>
           </div>
@@ -125,10 +124,8 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-xs text-[#2e2f2d]/60 font-mono">
-          <p>© {currentYear} {siteConfig.shortName}. All rights reserved.</p>
+          <p>© {currentYear} {siteConfig.shortName}.</p>
           <div className="flex items-center gap-6 text-[11px]">
-            <span>PROGRESSIVE WEB APP READY</span>
-            <span>STATIC SECURED</span>
           </div>
         </div>
       </Container>

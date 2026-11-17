@@ -22,7 +22,7 @@ const openSans = Open_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: `${siteConfig.shortName} — Portfolio 5 Aplikasi ERP Terintegrasi`,
+    default: `${siteConfig.shortName} — ERP Solution`,
     template: `%s | ${siteConfig.shortName}`,
   },
   description: siteConfig.description,

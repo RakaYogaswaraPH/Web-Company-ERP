@@ -136,7 +136,7 @@ export function Navbar() {
 
             {/* Desktop Center: Tagline text */}
             <div className="hidden md:flex items-center justify-center flex-1 px-4 text-center">
-              <span className="font-display text-xs lg:text-sm font-bold uppercase tracking-[0.25em] text-[#2e2f2d]">
+              <span className="font-display text-xs lg:text-sm font-light uppercase tracking-[0.25em] text-[#2e2f2d]">
                 More Than Just ICT Solution
               </span>
             </div>
@@ -217,7 +217,7 @@ export function Navbar() {
                       type="button"
                       onClick={() => setIsOpen(false)}
                       aria-label="Tutup Menu"
-                      className="flex h-10 w-10 items-center justify-center border border-[#2e2f2d] bg-[#2e2f2d] text-white transition-all duration-300 hover:rotate-90 hover:bg-accent-500 hover:border-accent-500 focus:outline-none cursor-pointer active:scale-90"
+                      className="flex h-10 w-10 items-center justify-center border border-[#2e2f2d] bg-[#2e2f2d] text-white transition-colors duration-200 hover:bg-accent-500 hover:border-accent-500 focus:outline-none cursor-pointer active:scale-95"
                     >
                       <X className="h-5 w-5" />
                     </button>

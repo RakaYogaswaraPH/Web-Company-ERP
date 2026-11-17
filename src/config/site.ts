@@ -1,11 +1,11 @@
 import { SiteConfig, NavItem } from "@/types";
 
 export const siteConfig: SiteConfig = {
-  name: "Jamparing Masagi ERP Suite",
-  shortName: "Jamparing Masagi",
-  tagline: "Ekosistem Perangkat Lunak Operasional Perusahaan Terintegrasi",
+  name: "Jamparing Masagi",
+  shortName: "PT. Jamparing Masagi",
+  tagline: "PT. Jamparing Masagi — More Than Just ICT Solution.",
   description:
-    "Portofolio 5 aplikasi terintegrasi Jamparing Masagi: DIGIARS (digital arsip), WMS (water monitoring IoT), PESANDONG (kasir POS), KEUANGAN (iuran/SPP/tagihan), dan HRM (absensi, task, surat menyurat).",
+    "ERP Solution.",
   url: "https://jamparingmasagi.id", // TODO(isi-konten): sesuaikan dengan domain resmi bila sudah ada
   contact: {
     email: "info@jamparingmasagi.id", // TODO(isi-konten): konfirmasi email resmi
@@ -16,7 +16,7 @@ export const siteConfig: SiteConfig = {
 };
 
 export const navItems: NavItem[] = [
-  { label: "Portfolio", href: "#portfolio" },
+  { label: "Solusi", href: "#portfolio" },
   { label: "Keunggulan", href: "#why-us" },
   { label: "Tentang Kami", href: "#about" },
   { label: "Kontak", href: "#contact" },

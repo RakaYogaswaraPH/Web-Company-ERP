@@ -21,11 +21,11 @@ export function Hero() {
         >
           {/* Main Hero Headline (Grand, Bold, Impactful) */}
           <h1 className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[86px] font-bold uppercase tracking-tight text-[#2e2f2d] leading-[1.02] text-balance max-w-6xl drop-shadow-xs">
-            Unleash your business growth potential.
+            Unleash your business growth potential
           </h1>
 
           <p className="mt-8 max-w-2xl text-base sm:text-lg lg:text-xl text-[#2e2f2d]/80 leading-relaxed font-body">
-            Optimalkan dan penuhi semua kebutuhan bisnis Anda dalam satu platform dengan mudah, efisien, dan terjangkau.
+            Optimalkan dan penuhi semua kebutuhan bisnis Anda dalam satu platform dengan mudah, cepat, dan efisien.
           </p>
 
           {/* Action Buttons (Strictly Equal Dimensions & Perfect Visual Balance) */}

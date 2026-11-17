@@ -77,12 +77,11 @@ export function CTA() {
                 Hubungi Kami
               </span>
               <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-tight text-[#2e2f2d] leading-[1.1]">
-                Konsultasikan Kebutuhan Sistem Anda
+                Konsultasikan Kebutuhan Anda
               </h2>
 
               <p className="mt-6 text-sm sm:text-base text-[#2e2f2d]/75 leading-relaxed font-body">
-                Diskusikan tantangan operasional perusahaan Anda bersama konsultan teknis Jamparing Masagi.
-                Kami siap mendemokan alur kerja tiap modul secara interaktif.
+                Diskusikan kebutuhan bisnis Anda bersama konsultan teknis kami untuk mewujudkan bisnis yang anda capai.
               </p>
 
               {/* Direct Channels */}
@@ -132,14 +131,6 @@ export function CTA() {
                 </a>
               </div>
             </div>
-
-            <div className="mt-8 pt-6 border-t border-[#deded6] text-xs text-[#2e2f2d]/60">
-              <p className="font-semibold text-[#2e2f2d] mb-1">{siteConfig.shortName}</p>
-              <p>{siteConfig.contact.address}</p>
-              <p className="mt-2 text-[11px] text-[#2e2f2d]/50">
-                TODO(isi-konten): Konfirmasi jam operasional & alamat detail kantor resmi
-              </p>
-            </div>
           </div>
 
           {/* Right Column: Request Demo Form (Clean #f6f6f2 Background, No Outer Border) */}
@@ -148,15 +139,12 @@ export function CTA() {
               <div className="flex items-center justify-between border-b border-[#2e2f2d]/15 pb-4 mb-6">
                 <div>
                   <h3 className="font-display text-xl sm:text-2xl font-bold uppercase text-[#2e2f2d]">
-                    Formulir Permintaan Uji Coba
+                    Permintaan Uji Coba
                   </h3>
                   <p className="text-xs text-[#2e2f2d]/60 mt-1">
-                    Pilih aplikasi yang ingin Anda uji coba atau jadwalkan presentasi
+                    Pilih aplikasi yang ingin Anda uji coba bersama kami
                   </p>
                 </div>
-                <span className="font-mono text-xs font-bold text-accent-500 uppercase px-2 py-0.5 bg-accent-500/10">
-                  GRATIS
-                </span>
               </div>
 
               {submitted ? (
