@@ -21,7 +21,7 @@ export const products: Product[] = [
   },
   {
     slug: "wms",
-    name: "Water Monitoring",
+    name: "Water Tracking",
     subtitle: "Sistem Manajemen Pajak Air",
     tagline: "Pemantauan pemakaian air real-time dan kalkulasi pajak berbasis perangkat IoT.",
     description:
