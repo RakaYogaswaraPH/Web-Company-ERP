@@ -39,7 +39,6 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
       const targetElement = document.querySelector(hash);
       if (targetElement) {
         e.preventDefault();
-        e.stopPropagation();
 
         lenis.scrollTo(targetElement as HTMLElement, {
           offset: -80, // account for sticky header height
@@ -62,12 +61,12 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
       history.replaceState(null, "", window.location.pathname);
     };
 
-    document.addEventListener("click", handleAnchorClick, true);
+    document.addEventListener("click", handleAnchorClick);
     window.addEventListener("hashchange", handleHashChange);
 
     return () => {
       cancelAnimationFrame(rafId);
-      document.removeEventListener("click", handleAnchorClick, true);
+      document.removeEventListener("click", handleAnchorClick);
       window.removeEventListener("hashchange", handleHashChange);
       lenis.destroy();
     };

@@ -195,7 +195,11 @@ export function Navbar() {
                 transition={{ duration: 0.45, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
               >
                 <div className="flex items-center justify-between border-b border-[#2e2f2d]/15 pb-6">
-                  <div className="flex items-center gap-3">
+                  <Link
+                    href="/"
+                    onClick={() => setIsOpen(false)}
+                    className="flex items-center gap-3 transition-opacity hover:opacity-90"
+                  >
                     <div
                       className="relative h-8 w-28 sm:w-32"
                       style={{ position: "relative" }}
@@ -207,7 +211,7 @@ export function Navbar() {
                         className="object-contain object-left"
                       />
                     </div>
-                  </div>
+                  </Link>
 
                   <div className="flex items-center gap-4">
                     <span className="hidden sm:inline font-display text-[10px] font-bold uppercase tracking-widest text-[#2e2f2d]/60">
@@ -274,6 +278,7 @@ export function Navbar() {
                         href={`https://wa.me/${siteConfig.contact.whatsapp}`}
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={() => setIsOpen(false)}
                         className="hover:text-accent-500 transition-colors"
                       >
                         WhatsApp Bisnis
@@ -284,6 +289,7 @@ export function Navbar() {
                         href="https://linkedin.com"
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={() => setIsOpen(false)}
                         className="hover:text-accent-500 transition-colors"
                       >
                         LinkedIn Resmi
@@ -294,6 +300,7 @@ export function Navbar() {
                         href="https://instagram.com"
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={() => setIsOpen(false)}
                         className="hover:text-accent-500 transition-colors"
                       >
                         Instagram Portfolio
