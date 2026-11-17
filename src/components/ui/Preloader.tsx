@@ -63,26 +63,26 @@ export function Preloader() {
           initial={{ opacity: 1 }}
           exit={{
             opacity: 0,
-            transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] },
+            transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
           }}
-          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#f6f6f2] select-none"
+          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#f6f6f2] select-none"
         >
           {/* Centered Masagi Emblem & Progress Indicator */}
           <div className="flex flex-col items-center px-6">
-            {/* Logo with delicate scale entry */}
+            {/* Logo container with explicit dimensions guaranteed to render immediately */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.92, y: 10 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="mb-8"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+              className="relative h-12 w-44 sm:w-52 mb-8 flex items-center justify-center"
             >
               <Image
                 src="/assets/logo/logo-dark.webp"
                 alt="Jamparing Masagi"
-                width={180}
-                height={55}
+                fill
                 priority
-                className="h-10 sm:h-12 w-auto object-contain"
+                className="object-contain"
+                sizes="(max-width: 640px) 176px, 208px"
               />
             </motion.div>
 
