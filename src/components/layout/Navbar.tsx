@@ -270,47 +270,6 @@ export function Navbar() {
               >
                 <div>
                   <p className="font-display font-bold uppercase tracking-wider text-[#2e2f2d] mb-2">
-                    Media & Saluran
-                  </p>
-                  <ul className="space-y-1 font-body">
-                    <li>
-                      <a
-                        href={`https://wa.me/${siteConfig.contact.whatsapp}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={() => setIsOpen(false)}
-                        className="hover:text-accent-500 transition-colors"
-                      >
-                        WhatsApp Bisnis
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="https://linkedin.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={() => setIsOpen(false)}
-                        className="hover:text-accent-500 transition-colors"
-                      >
-                        LinkedIn Resmi
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="https://instagram.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={() => setIsOpen(false)}
-                        className="hover:text-accent-500 transition-colors"
-                      >
-                        Instagram Portfolio
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-
-                <div>
-                  <p className="font-display font-bold uppercase tracking-wider text-[#2e2f2d] mb-2">
                     Kontak Langsung
                   </p>
                   <p className="font-mono">{siteConfig.contact.email}</p>

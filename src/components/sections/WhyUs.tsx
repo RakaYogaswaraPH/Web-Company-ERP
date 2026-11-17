@@ -22,7 +22,7 @@ export function WhyUs() {
       num: "03",
       title: "Manajemen Pengguna",
       description:
-        "Pemberian hak akses guna memastikan data sensitif serta riwayat aktivitas untuk memastikan keamanan sistem terjaga.",
+        "Pemberian hak akses guna memastikan data serta riwayat aktivitas keamanan sistem terjaga.",
       icon: Lock,
     },
     {
