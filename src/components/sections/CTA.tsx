@@ -81,7 +81,7 @@ export function CTA() {
               </h2>
 
               <p className="mt-6 text-sm sm:text-base text-[#2e2f2d]/75 leading-relaxed font-body">
-                Diskusikan kebutuhan bisnis Anda bersama konsultan teknis kami untuk mewujudkan bisnis yang anda capai.
+                Diskusikan kebutuhan bisnis Anda bersama kami untuk mewujudkan bisnis yang anda capai.
               </p>
 
               {/* Direct Channels */}
@@ -182,7 +182,7 @@ export function CTA() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block font-display text-xs font-bold uppercase tracking-wider text-[#2e2f2d] mb-1">
+                      <label className="block font-display text-xs font-light uppercase tracking-wider text-[#2e2f2d] mb-1">
                         Nama Lengkap *
                       </label>
                       <input
@@ -196,7 +196,7 @@ export function CTA() {
                     </div>
 
                     <div>
-                      <label className="block font-display text-xs font-bold uppercase tracking-wider text-[#2e2f2d] mb-1">
+                      <label className="block font-display text-xs font-light uppercase tracking-wider text-[#2e2f2d] mb-1">
                         Nama Perusahaan / Instansi *
                       </label>
                       <input
@@ -212,7 +212,7 @@ export function CTA() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block font-display text-xs font-bold uppercase tracking-wider text-[#2e2f2d] mb-1">
+                      <label className="block font-display text-xs font-light uppercase tracking-wider text-[#2e2f2d] mb-1">
                         Alamat Email Kerja *
                       </label>
                       <input
@@ -226,7 +226,7 @@ export function CTA() {
                     </div>
 
                     <div>
-                      <label className="block font-display text-xs font-bold uppercase tracking-wider text-[#2e2f2d] mb-1">
+                      <label className="block font-display text-xs font-light uppercase tracking-wider text-[#2e2f2d] mb-1">
                         Nomor WhatsApp / Telepon *
                       </label>
                       <input
@@ -242,7 +242,7 @@ export function CTA() {
 
                   {/* Custom Styled Dropdown Component */}
                   <div className="relative" ref={dropdownRef}>
-                    <label className="block font-display text-xs font-bold uppercase tracking-wider text-[#2e2f2d] mb-1">
+                    <label className="block font-display text-xs font-light uppercase tracking-wider text-[#2e2f2d] mb-1">
                       Modul Aplikasi yang Diminati *
                     </label>
                     <button
@@ -320,7 +320,7 @@ export function CTA() {
                   </div>
 
                   <div>
-                    <label className="block font-display text-xs font-bold uppercase tracking-wider text-[#2e2f2d] mb-1">
+                    <label className="block font-display text-xs font-light uppercase tracking-wider text-[#2e2f2d] mb-1">
                       Kebutuhan atau Catatan Tambahan (Opsional)
                     </label>
                     <textarea
@@ -337,7 +337,7 @@ export function CTA() {
                       type="submit"
                       className="w-full bg-accent-500 py-3.5 font-display text-xs sm:text-sm font-bold uppercase tracking-widest text-white transition-all hover:bg-accent-600 active:scale-[0.99] shadow-sm cursor-pointer"
                     >
-                      Kirim Permintaan Demo Sekarang
+                      Kirim Permintaan Uji Coba
                     </button>
                     <p className="mt-2 text-center text-[11px] text-[#2e2f2d]/50">
                       Privasi terjamin. Data Anda tidak akan dibagikan kepada pihak ketiga.
