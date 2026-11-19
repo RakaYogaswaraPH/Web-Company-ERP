@@ -12,11 +12,9 @@ import { cn } from "@/lib/utils";
 function WireframeBox({
   className = "",
   hasX = true,
-  hasPlay = false,
 }: {
   className?: string;
   hasX?: boolean;
-  hasPlay?: boolean;
 }) {
   return (
     <div
@@ -47,21 +45,6 @@ function WireframeBox({
             strokeWidth="1.2"
           />
         </svg>
-      )}
-      {hasPlay && (
-        <div className="relative z-10 flex items-center justify-center">
-          <svg
-            className="w-6 h-6 text-[#2e2f2d]/45 ml-0.5"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.75"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <polygon points="6 3 20 12 6 21 6 3" />
-          </svg>
-        </div>
       )}
     </div>
   );
@@ -235,23 +218,9 @@ export function ProductShowcase() {
                     </div>
                   </div>
 
-                  {/* Frame Inner Wireframe Placeholder */}
-                  <div className="p-5 sm:p-7 flex-1 flex flex-col gap-4 bg-[#fbfbf9]">
-                    {/* Top Row: Left Large Box (Play Symbol) + Right Stacked Boxes (Crossed X Lines) */}
-                    <div className="grid grid-cols-12 gap-3.5 sm:gap-4 flex-1 min-h-[190px]">
-                      <WireframeBox
-                        className="col-span-7 h-full min-h-[160px]"
-                        hasX={false}
-                        hasPlay={true}
-                      />
-                      <div className="col-span-5 flex flex-col gap-3.5 sm:gap-4 h-full">
-                        <WireframeBox className="flex-1 min-h-[72px]" hasX={true} />
-                        <WireframeBox className="flex-1 min-h-[72px]" hasX={true} />
-                      </div>
-                    </div>
-
-                    {/* Bottom Row: Full-width Horizontal Box (Crossed X Lines) */}
-                    <WireframeBox className="h-20 sm:h-24 w-full" hasX={true} />
+                  {/* Frame Inner Wireframe Placeholder - Single Image Box with X */}
+                  <div className="p-4 sm:p-6 flex-1 flex flex-col bg-[#fbfbf9]">
+                    <WireframeBox className="w-full flex-1 min-h-[220px] sm:min-h-[280px]" hasX={true} />
                   </div>
                 </div>
               </div>
