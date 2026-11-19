@@ -97,15 +97,15 @@ export function Navbar() {
       <header className="sticky top-0 z-40 w-full border-b border-[#deded6] bg-[#f6f6f2]/95 backdrop-blur-md transition-colors pl-0 md:pl-16">
         <Container>
           <div className="flex h-20 items-center justify-between">
-            {/* Mobile: Hamburger Button on the side */}
+            {/* Mobile: Hamburger Button on the side (borderless) */}
             <div className="flex md:hidden items-center">
               <button
                 type="button"
                 onClick={() => setIsOpen(true)}
                 aria-label="Buka Menu"
-                className="flex h-10 w-10 items-center justify-center border border-[#deded6] text-[#2e2f2d] hover:border-[#2e2f2d] hover:bg-[#eff1ea] active:scale-95 transition-all focus:outline-none cursor-pointer"
+                className="flex h-10 w-10 items-center justify-center text-[#2e2f2d] hover:bg-[#eff1ea]/80 active:scale-95 transition-all focus:outline-none cursor-pointer"
               >
-                <div className="flex flex-col gap-1 w-4">
+                <div className="flex flex-col gap-1.5 w-5">
                   <span className="h-[2px] w-full bg-[#2e2f2d]" />
                   <span className="h-[2px] w-full bg-[#2e2f2d]" />
                   <span className="h-[2px] w-full bg-[#2e2f2d]" />

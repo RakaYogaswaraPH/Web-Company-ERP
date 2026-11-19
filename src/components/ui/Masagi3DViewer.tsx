@@ -54,11 +54,11 @@ export function Masagi3DViewer() {
     const updateCameraProjection = (w: number, h: number) => {
       const aspect = w / h;
       camera.aspect = aspect;
-      // In mobile portrait or narrow screen, zoom out so 3D emblem fits comfortably
+      // In mobile portrait, set camera distance to frame logo prominently without clipping
       if (w < 480) {
-        camera.position.z = 44;
+        camera.position.z = 37.5;
       } else if (w < 768) {
-        camera.position.z = 37;
+        camera.position.z = 34;
       } else {
         camera.position.z = 31;
       }
@@ -284,7 +284,7 @@ export function Masagi3DViewer() {
   return (
     <div
       ref={containerRef}
-      className={`relative w-full h-[250px] sm:h-[340px] md:h-[400px] lg:h-[460px] select-none flex items-center justify-center touch-pan-y ${
+      className={`relative w-full h-[290px] sm:h-[350px] md:h-[400px] lg:h-[460px] select-none flex items-center justify-center touch-pan-y ${
         isDragging ? "cursor-grabbing" : "cursor-grab"
       }`}
     />

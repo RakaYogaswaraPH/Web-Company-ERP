@@ -10,7 +10,7 @@ const Masagi3DViewer = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="w-full h-[250px] sm:h-[340px] md:h-[400px] lg:h-[460px] flex items-center justify-center">
+      <div className="w-full h-[290px] sm:h-[350px] md:h-[400px] lg:h-[460px] flex items-center justify-center">
         <div className="h-10 w-10 border-2 border-[#2e2f2d]/20 border-t-accent-500 rounded-full animate-spin" />
       </div>
     ),
