@@ -55,10 +55,18 @@ export const metadata: Metadata = {
     apple: "/assets/brands/Icons.webp",
   },
   manifest: "/manifest.webmanifest",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: siteConfig.shortName,
+  },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#2e2f2d",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f6f6f2" },
+    { media: "(prefers-color-scheme: dark)", color: "#f6f6f2" },
+  ],
   width: "device-width",
   initialScale: 1,
 };
