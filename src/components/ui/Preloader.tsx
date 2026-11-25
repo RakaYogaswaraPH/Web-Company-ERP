@@ -13,8 +13,34 @@ export function Preloader() {
   const [isComplete, setIsComplete] = useState(false);
 
   useEffect(() => {
-    // Lock body scroll during preloader
-    document.body.style.overflow = "hidden";
+    // 1. Mark preloader as active on root to keep scrollbar track stable while hiding thumb
+    document.documentElement.classList.add("preloader-active");
+    window.scrollTo(0, 0);
+
+    // 2. Prevent user scrolling without modifying body overflow (avoids scrollbar layout shift)
+    const preventScroll = (e: Event) => {
+      e.preventDefault();
+    };
+
+    const preventKeyScroll = (e: KeyboardEvent) => {
+      if (
+        [
+          "ArrowUp",
+          "ArrowDown",
+          "Space",
+          "PageUp",
+          "PageDown",
+          "Home",
+          "End",
+        ].includes(e.code)
+      ) {
+        e.preventDefault();
+      }
+    };
+
+    window.addEventListener("wheel", preventScroll, { passive: false });
+    window.addEventListener("touchmove", preventScroll, { passive: false });
+    window.addEventListener("keydown", preventKeyScroll, false);
 
     let current = 0;
     const startTime = performance.now();
@@ -46,8 +72,15 @@ export function Preloader() {
         // Brief hold at 100% before kinetic slat cascade exit
         setTimeout(() => {
           setIsComplete(true);
-          document.body.style.overflow = "";
         }, 240);
+
+        // Once the slat cascade completes and lifts off-screen, enable scrolling and smoothly fade in scrollbar
+        setTimeout(() => {
+          window.removeEventListener("wheel", preventScroll);
+          window.removeEventListener("touchmove", preventScroll);
+          window.removeEventListener("keydown", preventKeyScroll);
+          document.documentElement.classList.remove("preloader-active");
+        }, 240 + 1050);
       }
     };
 
@@ -55,7 +88,10 @@ export function Preloader() {
 
     return () => {
       cancelAnimationFrame(animId);
-      document.body.style.overflow = "";
+      window.removeEventListener("wheel", preventScroll);
+      window.removeEventListener("touchmove", preventScroll);
+      window.removeEventListener("keydown", preventKeyScroll);
+      document.documentElement.classList.remove("preloader-active");
     };
   }, []);
 
@@ -73,7 +109,7 @@ export function Preloader() {
           }}
           className="fixed inset-0 z-[9999] select-none overflow-hidden pointer-events-none"
         >
-          {/* 5-Column Kinetic Staggered Slats (Lifts sequentially like an architectural wave) */}
+          {/* 5-Column Kinetic Staggered Slats (Clean, Flat, No Shadow) */}
           {SLATS.map((i) => (
             <motion.div
               key={i}
@@ -90,7 +126,7 @@ export function Preloader() {
                 left: `${i * 20}%`,
                 width: "calc(20% + 1px)",
               }}
-              className="absolute top-0 bottom-0 bg-[#f6f6f2] border-b-[3px] border-accent-500 shadow-[0_20px_40px_rgba(46,47,45,0.1)] will-change-transform z-10"
+              className="absolute top-0 bottom-0 bg-[#f6f6f2] border-b-[3px] border-accent-500 will-change-transform z-10"
             />
           ))}
 
@@ -114,7 +150,7 @@ export function Preloader() {
                 transition={{ repeat: Infinity, duration: 2.8, ease: "linear" }}
                 className="absolute inset-0 pointer-events-none"
               >
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-accent-500 shadow-[0_0_10px_#d84939]" />
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-accent-500" />
               </motion.div>
 
               {/* Gauge SVG */}
